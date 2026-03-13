@@ -10,16 +10,25 @@ header{background:#0a3d62;color:white;text-align:center;padding:20px;}
 header img{width:130px;}
 nav{background:#222;padding:10px;text-align:center;}
 nav a{color:white;margin:10px;text-decoration:none;font-size:18px;}
-.hero{background:url("https://images.unsplash.com/photo-1544735716-392fe2489ffa") center/cover;height:400px;display:flex;align-items:center;justify-content:center;flex-direction:column;color:white;text-shadow:2px 2px 5px black;}
-.hero h1{font-size:40px;margin:0;}
-.btn{background:#25D366;padding:15px 30px;border-radius:5px;color:white;text-decoration:none;font-size:18px;}
-.section{padding:60px 20px;text-align:center;}
+.hero{background:url("https://images.unsplash.com/photo-1542345812-d98b5cd6cf98?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTY2fDB8MXxzZWFufHxzfHx8fHx8MTY5MTM5NzI2MA&ixlib=rb-4.0.3&q=80&w=1080") center/cover no-repeat;height:450px;display:flex;align-items:center;justify-content:center;flex-direction:column;color:white;text-shadow:2px 2px 5px black;animation:fadeIn 2s;}
+.hero h1{font-size:45px;margin:0;}
+.btn{background:#25D366;padding:15px 30px;border-radius:5px;color:white;text-decoration:none;font-size:18px;transition:0.3s;}
+.btn:hover{background:#128C7E;}
+.section{padding:60px 20px;text-align:center;opacity:0;animation:fadeIn 1s forwards;}
 .cards{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
-.card{background:white;padding:20px;width:250px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.2);}
+.card{background:white;padding:20px;width:250px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.2);transition:transform 0.3s, box-shadow 0.3s;cursor:pointer;}
+.card:hover{transform:translateY(-10px);box-shadow:0 10px 20px rgba(0,0,0,0.3);}
 .card img{width:100%;border-radius:10px;}
 footer{background:#111;color:white;text-align:center;padding:20px;}
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;padding:15px;border-radius:50%;font-size:22px;color:white;text-decoration:none;}
-iframe{border:0;border-radius:10px;margin-top:20px;}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;padding:15px;border-radius:50%;font-size:22px;color:white;text-decoration:none;z-index:1000;}
+/* Animations */
+@keyframes fadeIn {from{opacity:0;} to{opacity:1;}}
+/* Modal Styles */
+.modal{display:none;position:fixed;z-index:1000;padding-top:60px;left:0;top:0;width:100%;height:100%;overflow:auto;background:rgba(0,0,0,0.8);}
+.modal-content{background:white;margin:auto;padding:20px;border-radius:10px;width:80%;max-width:700px;animation:fadeIn 0.5s;}
+.close{color:#aaa;float:right;font-size:28px;font-weight:bold;cursor:pointer;}
+.close:hover{color:black;}
+.modal img{width:100%;border-radius:10px;margin-bottom:15px;}
 </style>
 </head>
 <body>
@@ -68,12 +77,49 @@ iframe{border:0;border-radius:10px;margin-top:20px;}
 <section class="section" id="tours">
 <h2>Popular Sri Lanka Tours</h2>
 <div class="cards">
-<div class="card"><h3>Sigiriya Rock Fortress</h3></div>
-<div class="card"><h3>Kandy Temple Tour</h3></div>
-<div class="card"><h3>Ella Scenic Tour</h3></div>
-<div class="card"><h3>Yala Safari</h3></div>
+<div class="card" onclick="openModal('sigiriya')"><h3>Sigiriya Rock Fortress</h3></div>
+<div class="card" onclick="openModal('kandy')"><h3>Kandy Temple Tour</h3></div>
+<div class="card" onclick="openModal('ella')"><h3>Ella Scenic Tour</h3></div>
+<div class="card" onclick="openModal('yala')"><h3>Yala Safari</h3></div>
 </div>
 </section>
+
+<!-- Modals -->
+<div id="sigiriya" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('sigiriya')">&times;</span>
+<img src="https://images.unsplash.com/photo-1607720905970-2b08c1b6c84f" alt="Sigiriya">
+<h2>Sigiriya Rock Fortress</h2>
+<p>Explore the famous Lion Rock Fortress, a UNESCO World Heritage site, with amazing views and ancient frescoes.</p>
+</div>
+</div>
+
+<div id="kandy" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('kandy')">&times;</span>
+<img src="https://images.unsplash.com/photo-1566691318837-27d8f6c4eb5a" alt="Kandy Temple">
+<h2>Kandy Temple Tour</h2>
+<p>Visit the Temple of the Tooth, cultural capital of Sri Lanka, and enjoy the beautiful Kandy lake and gardens.</p>
+</div>
+</div>
+
+<div id="ella" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('ella')">&times;</span>
+<img src="https://images.unsplash.com/photo-1505852679233-d9fd70aff56d" alt="Ella">
+<h2>Ella Scenic Tour</h2>
+<p>Discover tea plantations, Nine Arches Bridge, and breathtaking mountain views in Ella.</p>
+</div>
+</div>
+
+<div id="yala" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('yala')">&times;</span>
+<img src="https://images.unsplash.com/photo-1572441713320-66b54e02a0d1" alt="Yala Safari">
+<h2>Yala Safari</h2>
+<p>Experience wildlife adventure in Yala National Park, home to leopards, elephants, and exotic birds.</p>
+</div>
+</div>
 
 <section class="section" id="reviews">
 <h2>Customer Reviews</h2>
@@ -87,7 +133,6 @@ iframe{border:0;border-radius:10px;margin-top:20px;}
 <p>📞 +94 787 077 007</p>
 <p>Sri Lanka</p>
 <a class="btn" href="https://wa.me/94787077007">Chat on WhatsApp</a>
-
 <iframe src="https://maps.google.com/maps?q=katunayake%20sri%20lanka&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="300"></iframe>
 </section>
 
@@ -96,6 +141,20 @@ iframe{border:0;border-radius:10px;margin-top:20px;}
 </footer>
 
 <a class="whatsapp" href="https://wa.me/94787077007">💬</a>
+
+<script>
+// Modal functions
+function openModal(id){document.getElementById(id).style.display="block";}
+function closeModal(id){document.getElementById(id).style.display="none";}
+// Close modal when clicking outside
+window.onclick = function(event){
+  let modals = ['sigiriya','kandy','ella','yala'];
+  modals.forEach(id => {
+    let modal = document.getElementById(id);
+    if(event.target == modal){modal.style.display="none";}
+  });
+}
+</script>
 
 </body>
 </html>
