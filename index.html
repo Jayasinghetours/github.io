@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="description" content="Jayasinghe Tours & Car Rental Sri Lanka. Premium cars with driver.">
+  <meta name="description" content="Jayasinghe Tours & Car Rental Sri Lanka. Premium cars with driver from Katunayake.">
   <title>Jayasinghe Tours | Sri Lanka Premium Rental</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -11,79 +11,134 @@
 
 <nav class="navbar">
   <div class="navbar-brand">
-    <img src="https://jayasinghetours.github.io/logo.png" alt="Logo">
+    <img src="https://jayasinghetours.github.io/logo.png" alt="Jayasinghe Tours Logo">
     <h2>Jayasinghe Tours</h2>
   </div>
   <div class="nav-links">
     <a href="#">Home</a>
-    <a href="#cars">Cars</a>
-    <a href="#tours">Tours</a>
+    <a href="#cars">Fleet</a>
     <a href="#booking">Book</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <header class="hero-slider">
   <div class="slide active-slide" style="background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070&auto=format&fit=crop');">
     <div class="slide-content">
-      <h1>Explore Sri Lanka</h1>
-      <p>Premium Car Rental with Professional Drivers</p>
-      <a href="#booking" class="hero-btn">🚗 Book Now</a>
+      <h1>Premium Car Rental</h1>
+      <p>Explore Sri Lanka with our professional driver-guides.</p>
+      <a href="#booking" class="hero-btn">🚗 Book Your Ride</a>
     </div>
   </div>
   <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?q=80&w=2070&auto=format&fit=crop');">
     <div class="slide-content">
-      <h1>Adventure Awaits</h1>
-      <p>Sigiriya, Kandy, & Ella Luxury Tours</p>
-      <a href="#tours" class="hero-btn">🏝️ View Tours</a>
+      <h1>Unforgettable Tours</h1>
+      <p>Sigiriya, Kandy, Ella & Yala Safaris</p>
+      <a href="#cars" class="hero-btn">🏝️ View Fleet</a>
     </div>
   </div>
   <div class="dots-container">
-    <span class="dot active-dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot active-dot" onclick="currentSlide(0)"></span>
+    <span class="dot" onclick="currentSlide(1)"></span>
   </div>
 </header>
 
 <section class="section" id="cars">
-  <h2 class="reveal">Our Premium Fleet</h2>
-  <div class="cards-grid">
-    <div class="card reveal" onclick="openModal('wagonr')">
-      <div class="card-img-container">
-        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=800&auto=format&fit=crop" alt="Wagon R">
+  <div class="section-header reveal">
+    <h2>Our Premium Fleet</h2>
+    <p>Select a vehicle to view details and book your journey.</p>
+  </div>
+  
+  <div class="vertical-layout">
+    <div class="vertical-card reveal" onclick="openModal('wagonr')">
+      <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=800&auto=format&fit=crop" alt="Suzuki Wagon R">
+      <div class="vertical-card-content">
+        <h3>Suzuki Wagon R</h3>
+        <p class="subtitle">Compact • Fuel-Saver • 4 Passengers</p>
+        <p class="desc">The perfect choice for couples or solo travelers navigating city streets or short tours. Includes A/C and free WiFi.</p>
+        <div class="price">From $45 / Day</div>
+        <span class="view-btn">View Details &rarr;</span>
       </div>
-      <div class="card-content"><h3>Suzuki Wagon R</h3><p>Compact & Efficient</p></div>
     </div>
-    <div class="card reveal" onclick="openModal('axio')">
-      <div class="card-img-container">
-        <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=800&auto=format&fit=crop" alt="Axio">
+
+    <div class="vertical-card reveal" onclick="openModal('axio')">
+      <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=800&auto=format&fit=crop" alt="Toyota Axio">
+      <div class="vertical-card-content">
+        <h3>Toyota Axio</h3>
+        <p class="subtitle">Spacious Sedan • Family Friendly • 4 Passengers</p>
+        <p class="desc">A premium sedan offering a smooth ride with plenty of luggage space. Highly recommended for long-distance island tours.</p>
+        <div class="price">From $65 / Day</div>
+        <span class="view-btn">View Details &rarr;</span>
       </div>
-      <div class="card-content"><h3>Toyota Axio</h3><p>Comfortable Sedan</p></div>
+    </div>
+    
+    <div class="vertical-card reveal" onclick="openModal('aqua')">
+      <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=800&auto=format&fit=crop" alt="Toyota Aqua">
+      <div class="vertical-card-content">
+        <h3>Toyota Aqua Hybrid</h3>
+        <p class="subtitle">Eco-Friendly • Silent Ride • 4 Passengers</p>
+        <p class="desc">Experience a quiet, comfortable journey with excellent fuel economy. Ideal for scenic routes and hill country drives.</p>
+        <div class="price">From $55 / Day</div>
+        <span class="view-btn">View Details &rarr;</span>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="booking">
-  <h2 class="reveal">Fast Booking</h2>
-  <div class="booking-card">
+<section class="section" id="booking" style="background: #eef2f7;">
+  <div class="section-header reveal">
+    <h2>Quick Booking</h2>
+    <p>Reserve your car and driver in seconds.</p>
+  </div>
+  <div class="booking-card reveal">
     <form id="bookingForm" onsubmit="sendBooking(event)">
-      <input type="text" id="name" placeholder="Full Name" required>
-      <input type="date" id="date" required>
+      <div class="form-row">
+        <input type="text" id="name" placeholder="Your Full Name" required>
+        <input type="date" id="date" required>
+      </div>
       <select id="service" required>
-        <option value="Car Rental">Car Rental</option>
-        <option value="Tour Package">Tour Package</option>
+        <option value="" disabled selected>Select Your Vehicle</option>
+        <option value="Suzuki Wagon R">Suzuki Wagon R</option>
+        <option value="Toyota Axio">Toyota Axio</option>
+        <option value="Toyota Aqua">Toyota Aqua</option>
+        <option value="Custom Tour Package">Custom Tour Package</option>
       </select>
-      <button type="submit" class="btn-submit">Inquire on WhatsApp</button>
+      <button type="submit" class="btn-submit">📩 Send Inquiry via WhatsApp</button>
     </form>
   </div>
 </section>
+
+<footer id="contact">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>Jayasinghe Tours</h3>
+      <p>Premium car rental and guided tours across Sri Lanka. Experience the Pearl of the Indian Ocean with our trusted local experts.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Contact Us</h3>
+      <p>📍 No 2 Jubilee Mw, Katana, Sri Lanka</p>
+      <p>📞 +94 787 077 007</p>
+      <p>✉️ booking@jayasinghetours.com</p>
+    </div>
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <p><a href="#cars" style="color: #bbb; text-decoration: none;">Our Fleet</a></p>
+      <p><a href="#booking" style="color: #bbb; text-decoration: none;">Book Now</a></p>
+      <p><a href="https://wa.me/94787077007" style="color: #bbb; text-decoration: none;">WhatsApp Support</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Jayasinghe Tours & Car Rental. All Rights Reserved.</p>
+  </div>
+</footer>
 
 <div id="wagonr" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('wagonr')">&times;</span>
     <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=800&auto=format&fit=crop" class="modal-img">
     <h2>Suzuki Wagon R</h2>
-    <p>The perfect choice for couples or solo travelers. Includes A/C and unlimited mileage with our driver.</p>
-    <div class="price-tag">$45 / Day</div>
-    <a href="https://wa.me/94787077007" class="hero-btn">Book This Car</a>
+    <p><strong>Included:</strong> English-speaking driver, unlimited kilometers, fuel, and parking fees.</p>
+    <a href="https://wa.me/94787077007?text=Hi,%20I%20want%20to%20book%20the%20Suzuki%20Wagon%20R" class="hero-btn" style="width: 100%; text-align: center;">Book on WhatsApp</a>
   </div>
 </div>
 
@@ -92,13 +147,22 @@
     <span class="close" onclick="closeModal('axio')">&times;</span>
     <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=800&auto=format&fit=crop" class="modal-img">
     <h2>Toyota Axio</h2>
-    <p>Premium sedan with plenty of luggage space. Perfect for long distance island tours.</p>
-    <div class="price-tag">$65 / Day</div>
-    <a href="https://wa.me/94787077007" class="hero-btn">Book This Car</a>
+    <p><strong>Included:</strong> English-speaking driver, unlimited kilometers, fuel, and parking fees.</p>
+    <a href="https://wa.me/94787077007?text=Hi,%20I%20want%20to%20book%20the%20Toyota%20Axio" class="hero-btn" style="width: 100%; text-align: center;">Book on WhatsApp</a>
   </div>
 </div>
 
-<a href="https://wa.me/94787077007" class="whatsapp-float">💬 Chat</a>
+<div id="aqua" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('aqua')">&times;</span>
+    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=800&auto=format&fit=crop" class="modal-img">
+    <h2>Toyota Aqua Hybrid</h2>
+    <p><strong>Included:</strong> English-speaking driver, unlimited kilometers, fuel, and parking fees.</p>
+    <a href="https://wa.me/94787077007?text=Hi,%20I%20want%20to%20book%20the%20Toyota%20Aqua" class="hero-btn" style="width: 100%; text-align: center;">Book on WhatsApp</a>
+  </div>
+</div>
+
+<a href="https://wa.me/94787077007" class="whatsapp-float">💬 WhatsApp Us</a>
 
 <script src="script.js"></script>
 </body>
