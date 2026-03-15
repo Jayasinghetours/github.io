@@ -158,3 +158,29 @@ input:focus, select:focus { border-color: var(--accent); }
   .footer-grid { grid-template-columns: 1fr; text-align: center; }
   .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
 }
+/* ========================================= */
+/* SUBPAGES (LEGAL & FAQ)                    */
+/* ========================================= */
+.page-header {
+  background: linear-gradient(to bottom, rgba(10, 46, 77, 0.9), rgba(10, 46, 77, 0.9)), url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070') center/cover;
+  padding: 100px 5%;
+  text-align: center;
+  color: white;
+}
+.page-header h1 { font-size: 3rem; color: var(--accent); margin-bottom: 10px; }
+.legal-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  text-align: left;
+  border: 1px solid #eaeaea;
+}
+.legal-container h2 { color: var(--primary); margin: 30px 0 15px; font-size: 1.5rem; }
+.legal-container p, .legal-container ul { color: var(--text-light); margin-bottom: 15px; line-height: 1.8; font-size: 1.05rem; }
+.legal-container ul { padding-left: 20px; }
+.faq-item { margin-bottom: 25px; border-bottom: 1px solid #eaeaea; padding-bottom: 20px; }
+.faq-item h3 { color: var(--primary); font-size: 1.2rem; margin-bottom: 10px; }
+.faq-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
