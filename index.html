@@ -17,6 +17,7 @@
   <div class="nav-links">
     <a href="#">Home</a>
     <a href="#cars">Fleet</a>
+    <a href="#tours">Tours</a>
     <a href="#booking">Book</a>
     <a href="#contact">Contact</a>
   </div>
@@ -34,7 +35,7 @@
     <div class="slide-content">
       <h1>Unforgettable Tours</h1>
       <p>Sigiriya, Kandy, Ella & Yala Safaris</p>
-      <a href="#cars" class="hero-btn">🏝️ View Fleet</a>
+      <a href="#tours" class="hero-btn">🏝️ View Tours</a>
     </div>
   </div>
   <div class="dots-container">
@@ -55,7 +56,7 @@
       <div class="vertical-card-content">
         <h3>Suzuki Wagon R</h3>
         <p class="subtitle">Compact • Fuel-Saver • 4 Passengers</p>
-        <p class="desc">The perfect choice for couples or solo travelers navigating city streets or short tours. Includes A/C and free WiFi.</p>
+        <p class="desc">The perfect choice for couples or solo travelers navigating city streets or short tours. Includes A/C and hand-free driving with our guide.</p>
         <div class="price">From $45 / Day</div>
         <span class="view-btn">View Details &rarr;</span>
       </div>
@@ -85,10 +86,59 @@
   </div>
 </section>
 
-<section class="section" id="booking" style="background: #eef2f7;">
+<section class="section" id="tours" style="background: #eef2f7;">
+  <div class="section-header reveal">
+    <h2>Unforgettable Sri Lanka Tours</h2>
+    <p>Discover the magic of the island with our expert driver-guides.</p>
+  </div>
+  
+  <div class="vertical-layout">
+    <div class="vertical-card reveal" onclick="openModal('sigiriya')">
+      <img src="https://images.unsplash.com/photo-1588598198321-97368dcf0456?q=80&w=800&auto=format&fit=crop" alt="Sigiriya Rock">
+      <div class="vertical-card-content">
+        <h3>Sigiriya Rock Fortress</h3>
+        <p class="subtitle">Cultural Triangle • Ancient History</p>
+        <p class="desc">Climb the legendary Lion Rock, explore ancient water gardens, and view the world-famous frescoes with your dedicated guide.</p>
+        <span class="view-btn">View Tour &rarr;</span>
+      </div>
+    </div>
+
+    <div class="vertical-card reveal" onclick="openModal('kandy')">
+      <img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?q=80&w=800&auto=format&fit=crop" alt="Kandy Temple">
+      <div class="vertical-card-content">
+        <h3>Kandy Cultural Tour</h3>
+        <p class="subtitle">Hill Capital • Temple of the Tooth</p>
+        <p class="desc">Visit the sacred Temple of the Tooth Relic, stroll through the Royal Botanical Gardens, and witness a traditional cultural dance show.</p>
+        <span class="view-btn">View Tour &rarr;</span>
+      </div>
+    </div>
+
+    <div class="vertical-card reveal" onclick="openModal('ella')">
+      <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=800&auto=format&fit=crop" alt="Ella Sri Lanka">
+      <div class="vertical-card-content">
+        <h3>Ella Scenic Escape</h3>
+        <p class="subtitle">Tea Country • Nine Arches Bridge</p>
+        <p class="desc">Experience breathtaking views, hike Little Adam's Peak, and visit the iconic Nine Arches Bridge surrounded by lush tea plantations.</p>
+        <span class="view-btn">View Tour &rarr;</span>
+      </div>
+    </div>
+
+    <div class="vertical-card reveal" onclick="openModal('yala')">
+      <img src="https://images.unsplash.com/photo-1544181093-c712fbca8073?q=80&w=800&auto=format&fit=crop" alt="Yala Safari">
+      <div class="vertical-card-content">
+        <h3>Yala Wildlife Safari</h3>
+        <p class="subtitle">National Park • Leopards & Elephants</p>
+        <p class="desc">Embark on a thrilling 4x4 jeep safari with an expert tracker. Spot wild leopards, elephants, crocodiles, and exotic birds.</p>
+        <span class="view-btn">View Tour &rarr;</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="booking">
   <div class="section-header reveal">
     <h2>Quick Booking</h2>
-    <p>Reserve your car and driver in seconds.</p>
+    <p>Reserve your car or tour in seconds.</p>
   </div>
   <div class="booking-card reveal">
     <form id="bookingForm" onsubmit="sendBooking(event)">
@@ -97,11 +147,19 @@
         <input type="date" id="date" required>
       </div>
       <select id="service" required>
-        <option value="" disabled selected>Select Your Vehicle</option>
-        <option value="Suzuki Wagon R">Suzuki Wagon R</option>
-        <option value="Toyota Axio">Toyota Axio</option>
-        <option value="Toyota Aqua">Toyota Aqua</option>
-        <option value="Custom Tour Package">Custom Tour Package</option>
+        <option value="" disabled selected>Select Vehicle or Tour</option>
+        <optgroup label="Car Rental">
+          <option value="Suzuki Wagon R">Suzuki Wagon R</option>
+          <option value="Toyota Axio">Toyota Axio</option>
+          <option value="Toyota Aqua">Toyota Aqua</option>
+        </optgroup>
+        <optgroup label="Tour Packages">
+          <option value="Sigiriya Tour">Sigiriya Tour</option>
+          <option value="Kandy Tour">Kandy Tour</option>
+          <option value="Ella Tour">Ella Tour</option>
+          <option value="Yala Safari">Yala Safari</option>
+          <option value="Custom Multi-Day Tour">Custom Multi-Day Tour</option>
+        </optgroup>
       </select>
       <button type="submit" class="btn-submit">📩 Send Inquiry via WhatsApp</button>
     </form>
@@ -123,8 +181,8 @@
     <div class="footer-col">
       <h3>Quick Links</h3>
       <p><a href="#cars" style="color: #bbb; text-decoration: none;">Our Fleet</a></p>
+      <p><a href="#tours" style="color: #bbb; text-decoration: none;">Tour Packages</a></p>
       <p><a href="#booking" style="color: #bbb; text-decoration: none;">Book Now</a></p>
-      <p><a href="https://wa.me/94787077007" style="color: #bbb; text-decoration: none;">WhatsApp Support</a></p>
     </div>
   </div>
   <div class="footer-bottom">
@@ -159,6 +217,46 @@
     <h2>Toyota Aqua Hybrid</h2>
     <p><strong>Included:</strong> English-speaking driver, unlimited kilometers, fuel, and parking fees.</p>
     <a href="https://wa.me/94787077007?text=Hi,%20I%20want%20to%20book%20the%20Toyota%20Aqua" class="hero-btn" style="width: 100%; text-align: center;">Book on WhatsApp</a>
+  </div>
+</div>
+
+<div id="sigiriya" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('sigiriya')">&times;</span>
+    <img src="https://images.unsplash.com/photo-1588598198321-97368dcf0456?q=80&w=800&auto=format&fit=crop" class="modal-img">
+    <h2>Sigiriya Rock Fortress</h2>
+    <p>Enjoy a full-day excursion from Katunayake/Colombo. Includes comfortable transport, an experienced driver-guide, and bottled water. Entrance tickets not included.</p>
+    <a href="https://wa.me/94787077007?text=Hi,%20I%20want%20to%20book%20the%20Sigiriya%20Tour" class="hero-btn" style="width: 100%; text-align: center;">Inquire on WhatsApp</a>
+  </div>
+</div>
+
+<div id="kandy" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('kandy')">&times;</span>
+    <img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?q=80&w=800&auto=format&fit=crop" class="modal-img">
+    <h2>Kandy Cultural Tour</h2>
+    <p>Experience the cultural heart of Sri Lanka. Includes a dedicated driver, comfortable A/C vehicle, and guidance to all major Kandy attractions.</p>
+    <a href="https://wa.me/94787077007?text=Hi,%20I%20want%20to%20book%20the%20Kandy%20Tour" class="hero-btn" style="width: 100%; text-align: center;">Inquire on WhatsApp</a>
+  </div>
+</div>
+
+<div id="ella" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('ella')">&times;</span>
+    <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=800&auto=format&fit=crop" class="modal-img">
+    <h2>Ella Scenic Escape</h2>
+    <p>Perfect for multi-day trips. We provide safe transport through the winding hill country roads, stopping at waterfalls and tea factories along the way.</p>
+    <a href="https://wa.me/94787077007?text=Hi,%20I%20want%20to%20book%20the%20Ella%20Tour" class="hero-btn" style="width: 100%; text-align: center;">Inquire on WhatsApp</a>
+  </div>
+</div>
+
+<div id="yala" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('yala')">&times;</span>
+    <img src="https://images.unsplash.com/photo-1544181093-c712fbca8073?q=80&w=800&auto=format&fit=crop" class="modal-img">
+    <h2>Yala Wildlife Safari</h2>
+    <p>Travel to the deep south in comfort. We can arrange your 4x4 safari jeep and expert tracker upon arrival at the national park.</p>
+    <a href="https://wa.me/94787077007?text=Hi,%20I%20want%20to%20book%20the%20Yala%20Safari" class="hero-btn" style="width: 100%; text-align: center;">Inquire on WhatsApp</a>
   </div>
 </div>
 
