@@ -9,11 +9,12 @@ let sliderInterval;
 function showSlide(index) {
   slides.forEach(s => s.classList.remove('active-slide'));
   dots.forEach(d => d.classList.remove('active-dot'));
-  slides[index].classList.add('active-slide');
-  dots[index].classList.add('active-dot');
+  if(slides[index]) slides[index].classList.add('active-slide');
+  if(dots[index]) dots[index].classList.add('active-dot');
 }
 
 function nextSlide() {
+  if(slides.length === 0) return;
   slideIndex = (slideIndex + 1) % slides.length;
   showSlide(slideIndex);
 }
@@ -31,16 +32,14 @@ window.currentSlide = function(index) {
 // ==========================================
 // 2. MODAL & INNER GALLERY LOGIC
 // ==========================================
-// We need an object to remember which image we are looking at in which modal
 const galleryState = {};
 
 window.openModal = function(id) {
   const modal = document.getElementById(id);
   if (modal) {
     modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Stop background scrolling
+    document.body.style.overflow = 'hidden'; 
     
-    // Reset the gallery slider to the first image every time we open the modal
     galleryState[id] = 0;
     const track = document.getElementById(`track-${id}`);
     if(track) {
@@ -53,13 +52,11 @@ window.closeModal = function(id) {
   const modal = document.getElementById(id);
   if (modal) {
     modal.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restore background scrolling
+    document.body.style.overflow = 'auto'; 
   }
 };
 
-// Handle clicking the Next/Prev arrows inside the popup
 window.moveModalGallery = function(modalId, step) {
-  // Ensure we have a starting number
   if(galleryState[modalId] === undefined) {
     galleryState[modalId] = 0;
   }
@@ -68,24 +65,18 @@ window.moveModalGallery = function(modalId, step) {
   if(!track) return;
   
   const totalImages = track.children.length;
-  
-  // Calculate next image (with wrap-around)
   galleryState[modalId] += step;
   
-  // Loop back to start if we go past the end
   if (galleryState[modalId] >= totalImages) {
     galleryState[modalId] = 0;
   }
-  // Loop to the end if we go backwards past the start
   if (galleryState[modalId] < 0) {
     galleryState[modalId] = totalImages - 1;
   }
   
-  // Slide to the correct image using CSS transform
   track.style.transform = `translateX(-${galleryState[modalId] * 100}%)`;
 };
 
-// Close modal if user clicks the dark background
 window.onclick = function(event) {
   if (event.target.classList.contains('modal')) {
     event.target.style.display = 'none';
