@@ -129,3 +129,26 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 });
+
+// ==========================================
+// 5. SMART WHATSAPP BUTTON (Prevent overlapping footer)
+// ==========================================
+window.addEventListener('scroll', function() {
+  const whatsappBtn = document.querySelector('.whatsapp-float');
+  const footer = document.querySelector('.premium-footer');
+  
+  if (!whatsappBtn || !footer) return;
+
+  // Calculate how far the user has scrolled
+  const scrollPosition = window.innerHeight + window.scrollY;
+  const footerPosition = document.body.offsetHeight - footer.offsetHeight;
+
+  // If the user has scrolled down into the footer area...
+  if (scrollPosition >= footerPosition) {
+    // Push the button up so it sits nicely above the footer text
+    whatsappBtn.style.bottom = '100px'; 
+  } else {
+    // Otherwise, keep it in its normal bottom-right corner
+    whatsappBtn.style.bottom = '25px';
+  }
+});
