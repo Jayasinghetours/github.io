@@ -1,5 +1,5 @@
 // ==========================================
-// PRELOADER LOGIC
+// PRELOADER LOGIC (Added)
 // ==========================================
 function hidePreloader() {
     const preloader = document.getElementById('preloader');
@@ -11,7 +11,7 @@ function hidePreloader() {
     }
 }
 window.addEventListener('load', hidePreloader);
-setTimeout(hidePreloader, 4000); // Failsafe
+setTimeout(hidePreloader, 4000); // 4s failsafe
 
 // ==========================================
 // 0. MOBILE MENU TOGGLE
@@ -24,6 +24,7 @@ if (hamburger && navLinks) {
     navLinks.classList.toggle('active');
   });
 
+  // Close menu when a link is clicked
   const links = navLinks.querySelectorAll('a');
   links.forEach(link => {
     link.addEventListener('click', () => {
@@ -63,7 +64,7 @@ window.currentSlide = function(index) {
 };
 
 // ==========================================
-// 2. MODAL & INNER GALLERY LOGIC (Original Exact Logic)
+// 2. MODAL & INNER GALLERY LOGIC
 // ==========================================
 const galleryState = {};
 
@@ -110,7 +111,6 @@ window.moveModalGallery = function(modalId, step) {
   track.style.transform = `translateX(-${galleryState[modalId] * 100}%)`;
 };
 
-// Eliya click kalama close wena eka
 window.onclick = function(event) {
   if (event.target.classList.contains('modal')) {
     event.target.style.display = 'none';
