@@ -3,69 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rental Agreement | Jayasinghe Tours</title>
+  <meta name="description" content="Vehicle rental agreement and policies for Jayasinghe Tours and Car Rental.">
+  <title>Rental Agreement | Jayasinghe Tours and Car Rental</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav class="navbar">
   <div class="navbar-brand">
-    <img src="https://jayasinghetours.github.io/logo.png" alt="Logo">
+    <img src="https://jayasinghetours.github.io/logo.png" alt="Jayasinghe Tours Logo">
     <h2>Jayasinghe Tours</h2>
   </div>
-  <div class="nav-links">
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="nav-links" id="nav-links">
     <a href="index.html">Home</a>
     <a href="index.html#cars">Fleet</a>
+    <a href="index.html#tours">Tours</a>
     <a href="index.html#booking">Book</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
-<header class="page-header">
+<header class="page-header" style="background: linear-gradient(to bottom, rgba(10, 46, 77, 0.85), rgba(10, 46, 77, 0.95)), url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070') center/cover;">
   <h1>Rental Agreement</h1>
-  <p>Car Rental without Driver Policies</p>
+  <p style="color: var(--accent); font-size: 1.2rem; margin-top: 10px;">Car Rental Without Driver Policies</p>
 </header>
 
 <section class="section">
   <div class="legal-container reveal">
-    <h2>1. Vehicle Operation:</h2>
-    <p>The Renter shall operate the vehicle in a safe and responsible manner, complying with all Sri Lankan traffic laws and regulations.</p>
-
-    <h2>2. Vehicle Condition:</h2>
-    <ul>
-      The Renter agrees to return the vehicle in the same condition as received, including cleanliness. Smoking and pets are strictly prohibited inside the vehicle; a professional cleaning fee of Rs. [Amount] will apply for any violations.
-    </ul>
-
-    <h2>3. Accidents:</h2>
-    <p>In case of accident, the Renter must immediately notify the Company and, where applicable, the Insurance provider and/or police authorities.</p>
-
-    <h2>4. Liability & Insurance:</h2>
-    <p>The Renter is responsible for any damage to the vehicle during the rental period, up to the amount of the security deposit and/or insurance excess, subject to the insurance policy terms.</p>
     
-    <h2>5. Operational Costs:</h2>
-    <p>The Renter is responsible for all fuel costs, parking fees, toll fees, traffic violations, and fines. Puncture repairs are the responsibility of the Renter.</p>
+    <div class="faq-item">
+      <h3>1. Vehicle Operation</h3>
+      <p>The Renter shall operate the vehicle in a safe and responsible manner, complying with all Sri Lankan traffic laws and regulations.</p>
+    </div>
 
-    <h2>6. Mileage & Usage:</h2>
-    <p>The rental includes a daily limit of 120km or unlimited millage. Any excess mileage will be charged at a rate of Rs. 100 per kilometer.<strong> The vehicle shall not be used for ilegal purposes,Saffari area, driven off-road, or under the influence of alcohol or drugs,Not allowed </strong> </p>
+    <div class="faq-item">
+      <h3>2. Vehicle Condition</h3>
+      <p>The Renter agrees to return the vehicle in the same condition as received, including cleanliness. Smoking and pets are strictly prohibited inside the vehicle; a professional cleaning fee of Rs. [Amount] will apply for any violations.</p>
+    </div>
 
+    <div class="faq-item">
+      <h3>3. Accidents</h3>
+      <p>In case of an accident, the Renter must immediately notify the Company and, where applicable, the Insurance provider and/or police authorities.</p>
+    </div>
 
-    <h2>7. Authorized Drivers: </h2>
-    <p>The vehicle may only be driven by the Renter or an authorized driver holding a valid Sri Lankan driving license or a recognized Srilanka Driving Permit.</p>
+    <div class="faq-item">
+      <h3>4. Liability & Insurance</h3>
+      <p>The Renter is responsible for any damage to the vehicle during the rental period, up to the amount of the security deposit and/or insurance excess, subject to the insurance policy terms.</p>
+    </div>
     
-    <h2>8. Maintenance:</h2>
-    <p>For rentals exceeding 3 days, the Renter is responsible for checking oil, water/coolant levels, and tire pressure. The Company is responsible for mechanical repairs not caused by Renter negligence.</p>
+    <div class="faq-item">
+      <h3>5. Operational Costs</h3>
+      <p>The Renter is responsible for all fuel costs, parking fees, toll fees, traffic violations, and fines. Puncture repairs are the responsibility of the Renter.</p>
+    </div>
 
-    <h2>9. Modifications:</h2>
-    <p>The Renter shall not install, modify, or remove any parts or accessories. Any breach requires the Renter to restore the vehicle to its original condition at their own expense.</p>   
+    <div class="faq-item">
+      <h3>6. Mileage & Usage</h3>
+      <p>The rental includes a daily limit of 120km or unlimited mileage. Any excess mileage will be charged at a rate of Rs. 100 per kilometer. <strong>The vehicle shall not be used for illegal purposes, Safari areas, driven off-road, or under the influence of alcohol or drugs.</strong></p>
+    </div>
 
-    <h2>10. Return Policy:</h>
-    <p>The Renter agrees to return the vehicle to the designated location on or before the rental end date. A grace period of 1 hour is allowed; returns after this will incur a late fee of Rs. [Amount] per hour.</pp>
+    <div class="faq-item">
+      <h3>7. Authorized Drivers</h3>
+      <p>The vehicle may only be driven by the Renter or an authorized driver holding a valid Sri Lankan driving license or a recognized Sri Lanka Driving Permit.</p>
+    </div>
+    
+    <div class="faq-item">
+      <h3>8. Maintenance</h3>
+      <p>For rentals exceeding 3 days, the Renter is responsible for checking oil, water/coolant levels, and tire pressure. The Company is responsible for mechanical repairs not caused by Renter negligence.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>9. Modifications</h3>
+      <p>The Renter shall not install, modify, or remove any parts or accessories. Any breach requires the Renter to restore the vehicle to its original condition at their own expense.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>10. Return Policy</h3>
+      <p>The Renter agrees to return the vehicle to the designated location on or before the rental end date. A grace period of 1 hour is allowed; returns after this will incur a late fee of Rs. [Amount] per hour.</p>
+    </div>
   
-    <h2>11. Security Deposit:</h>
-    <p>The deposit will be refunded upon return of the vehicle, subject to a full inspection for damages and deduction of any outstanding charges.</p>
+    <div class="faq-item">
+      <h3>11. Security Deposit</h3>
+      <p>The deposit will be refunded upon return of the vehicle, subject to a full inspection for damages and deduction of any outstanding charges.</p>
+    </div>
 
-    <h2>12. Personal Property:</h>
-    <p>The Company is not responsible for the loss of or damage to any personal property left in the vehicle during or after the rental period.</p>
+    <div class="faq-item" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+      <h3>12. Personal Property</h3>
+      <p>The Company is not responsible for the loss of or damage to any personal property left in the vehicle during or after the rental period.</p>
+    </div>
     
   </div>
 </section>
@@ -73,18 +102,21 @@
 <footer class="premium-footer" id="contact">
   <div class="footer-grid">
     <div class="footer-brand">
-      <h3>Jayasinghe Tours</h3>
-      <p>Your trusted partner for premium car rentals and curated island tours in Sri Lanka.</p>
+      <h3>Jayasinghe Tours and Car Rental</h3>
+      <p>Your trusted partner for premium car rentals and curated island tours in Sri Lanka. Experience comfort, safety, and local expertise.</p>
       <p style="margin-top: 15px; font-weight: bold; color: #ffb347;">✓ Tourist Board Approved</p>
     </div>
+    
     <div class="footer-links">
       <h3>Explore</h3>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#cars">Our Fleet</a></li>
         <li><a href="index.html#tours">Tour Packages</a></li>
+        <li><a href="index.html#booking">Book Now</a></li>
       </ul>
     </div>
+
     <div class="footer-links">
       <h3>Support</h3>
       <ul>
@@ -94,17 +126,25 @@
         <li><a href="faq.html">FAQs</a></li>
       </ul>
     </div>
+
     <div class="footer-contact">
       <h3>Contact Us</h3>
       <ul>
-        <li>📍 Colombo,Srilanka</li>
+        <li>📍 No 2 Jubilee Mw, Katana, Sri Lanka</li>
         <li>📞 +94 787 077 007</li>
         <li>✉️ booking@jayasinghetours.com</li>
+        <li>🕒 24/7 Customer Support</li>
       </ul>
     </div>
   </div>
+  
   <div class="footer-bottom">
-    <div class="copyright">&copy; 2026 Jayasinghe Tours. All Rights Reserved.</div>
+    <div class="copyright">&copy; 2026 Jayasinghe Tours and Car Rental. All Rights Reserved.</div>
+    <div class="social-links">
+      <a href="https://www.facebook.com/JayasingheTour/" target="_blank" rel="noopener noreferrer" style="color:#94a3b8; text-decoration:none; font-weight:bold;">Facebook</a> | 
+      <a href="#" style="color:#94a3b8; text-decoration:none;">Instagram</a> | 
+      <a href="#" style="color:#94a3b8; text-decoration:none;">TripAdvisor</a>
+    </div>
   </div>
 </footer>
 
