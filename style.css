@@ -17,3 +17,77 @@
   .navbar-brand img { height: 40px !important; }
   .navbar-brand h2 { font-size: 18px !important; }
 }
+
+/* ========================================= */
+/* PREMIUM PROFESSIONAL UPGRADE              */
+/* ========================================= */
+
+/* Sleek Dark Menu Bar with Glass Effect */
+.navbar {
+    background: rgba(26, 32, 44, 0.98) !important; /* Premium Dark Color */
+    backdrop-filter: blur(10px) !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
+    padding: 15px 5% !important;
+    border-bottom: 2px solid #ffb347 !important; /* Gold line at the bottom */
+}
+
+/* Logo Text to White */
+.navbar-brand h2 {
+    color: #ffffff !important; 
+    letter-spacing: 1px !important;
+    text-transform: uppercase;
+}
+
+/* Professional Nav Links */
+.nav-links a {
+    color: #e2e8f0 !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    font-size: 14px !important;
+    letter-spacing: 1px !important;
+    padding: 8px 18px !important;
+    border-radius: 20px !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Hover Effect for Menu Links (Turns Gold like a button) */
+.nav-links a:hover {
+    color: #1a202c !important;
+    background: #ffb347 !important; 
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 10px rgba(255, 179, 71, 0.4) !important;
+}
+
+/* Premium Button Glow Effect (For WhatsApp & Hero buttons) */
+.hero-btn, .btn-submit {
+    background: linear-gradient(135deg, #ffb347 0%, #ff9800 100%) !important;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3) !important;
+    border: none !important;
+    color: #fff !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hero-btn:hover, .btn-submit:hover {
+    transform: scale(1.05) translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.5) !important;
+}
+
+/* Floating Cards Effect (Makes cars & tours look expensive) */
+.horizontal-card {
+    border: 1px solid rgba(0,0,0,0.05) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06) !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.horizontal-card:hover {
+    transform: translateY(-12px) !important;
+    box-shadow: 0 15px 35px rgba(255, 179, 71, 0.15) !important; /* Subtle gold shadow */
+    border-color: #ffb347 !important;
+}
+
+/* Hamburger Icon to White for mobile */
+.hamburger span {
+    background: #ffffff !important;
+}
