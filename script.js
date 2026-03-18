@@ -1,4 +1,24 @@
 // ==========================================
+// 0. MOBILE MENU TOGGLE
+// ==========================================
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  // Close menu when a link is clicked
+  const links = navLinks.querySelectorAll('a');
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
+}
+
+// ==========================================
 // 1. HERO SLIDER LOGIC
 // ==========================================
 let slideIndex = 0;
@@ -27,7 +47,6 @@ window.currentSlide = function(index) {
   showSlide(slideIndex);
   sliderInterval = setInterval(nextSlide, 5000); 
 };
-
 
 // ==========================================
 // 2. MODAL & INNER GALLERY LOGIC
@@ -84,7 +103,6 @@ window.onclick = function(event) {
   }
 };
 
-
 // ==========================================
 // 3. WHATSAPP BOOKING LOGIC
 // ==========================================
@@ -105,7 +123,6 @@ window.sendBooking = function(event) {
   const phone = "94787077007";
   window.open(`https://wa.me/${phone}?text=${whatsappMessage}`, '_blank');
 };
-
 
 // ==========================================
 // 4. SCROLL ANIMATIONS (Reveal)
@@ -131,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================
-// 5. SMART WHATSAPP BUTTON (Prevent overlapping footer)
+// 5. SMART WHATSAPP BUTTON
 // ==========================================
 window.addEventListener('scroll', function() {
   const whatsappBtn = document.querySelector('.whatsapp-float');
@@ -139,16 +156,12 @@ window.addEventListener('scroll', function() {
   
   if (!whatsappBtn || !footer) return;
 
-  // Calculate how far the user has scrolled
   const scrollPosition = window.innerHeight + window.scrollY;
   const footerPosition = document.body.offsetHeight - footer.offsetHeight;
 
-  // If the user has scrolled down into the footer area...
   if (scrollPosition >= footerPosition) {
-    // Push the button up so it sits nicely above the footer text
     whatsappBtn.style.bottom = '100px'; 
   } else {
-    // Otherwise, keep it in its normal bottom-right corner
     whatsappBtn.style.bottom = '25px';
   }
 });
