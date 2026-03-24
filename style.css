@@ -33,7 +33,7 @@ body { background: #f9fafb; color: #1a202c; line-height: 1.6; }
     border-bottom: 2px solid #ffb347;
     position: sticky; top: 0; z-index: 1000;
 }
-.navbar-brand { display: flex; align-items: center; gap: 10px; }
+.navbar-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 .navbar-brand img { height: 45px; }
 .navbar-brand h2 { font-size: 20px; color: #ffffff; letter-spacing: 1px; text-transform: uppercase; }
 .nav-links { display: flex; align-items: center; }
@@ -110,6 +110,55 @@ input, select { width: 100%; padding: 14px; border: 1px solid #e2e8f0; border-ra
 input:focus, select:focus { border-color: #ffb347; box-shadow: 0 0 0 3px rgba(255,179,71,0.2); }
 .btn-submit { width: 100%; margin-top: 10px; font-size: 16px; }
 
+/* Booking action buttons — equal size, premium look */
+.booking-btn-row {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.booking-action-btn {
+    flex: 1 1 0;
+    min-width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 20px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    letter-spacing: 0.4px;
+    box-sizing: border-box;
+}
+.booking-action-btn i { font-size: 18px; }
+.email-btn {
+    background: linear-gradient(135deg, #ffb347, #ff9800);
+    color: #fff;
+    box-shadow: 0 5px 18px rgba(255,152,0,0.3);
+}
+.email-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255,152,0,0.45);
+}
+.whatsapp-btn {
+    background: linear-gradient(135deg, #25D366, #128C4A);
+    color: #fff;
+    box-shadow: 0 5px 18px rgba(37,211,102,0.3);
+}
+.whatsapp-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(37,211,102,0.45);
+}
+@media screen and (max-width: 480px) {
+    .booking-btn-row { flex-direction: column; }
+    .booking-action-btn { width: 100%; }
+}
+
 .premium-footer { background: #1a202c; color: #cbd5e0; padding: 70px 5% 30px; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
 .footer-brand h3 { color: #fff; font-size: 1.5rem; margin-bottom: 15px; }
@@ -146,39 +195,65 @@ input:focus, select:focus { border-color: #ffb347; box-shadow: 0 0 0 3px rgba(25
 /* 8. MOBILE RESPONSIVE FIXES                */
 /* ========================================= */
 @media screen and (max-width: 768px) {
-    .hero-slider { height: 60vh; } 
-    .slide-content h1 { font-size: 2.2rem; }
-    .slide-content p { font-size: 1rem; }
+    /* Hero Banner */
+    .hero-slider { height: 55vw; min-height: 250px; max-height: 380px; }
+    .slide { background-size: cover; background-position: center top; }
+    .slide-content h1 { font-size: 1.8rem; }
+    .slide-content p { font-size: 0.95rem; }
+
+    /* Navbar */
     .navbar-brand h2 { font-size: 16px; }
-    .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(26, 32, 44, 0.98); flex-direction: column; text-align: center; padding: 20px 0; border-bottom: 2px solid #ffb347; }
+    .nav-links {
+        display: none; position: absolute; top: 100%; left: 0;
+        width: 100%; background: rgba(26, 32, 44, 0.98);
+        flex-direction: column; text-align: center;
+        padding: 20px 0; border-bottom: 2px solid #ffb347;
+    }
     .nav-links.active { display: flex; }
     .nav-links a { margin: 12px 0; display: inline-block; }
     .hamburger { display: block; }
+
+    /* Sections & Cards */
+    .section { padding: 40px 4%; }
+    .section-header h2 { font-size: 1.8rem; }
+    .cards-grid { grid-template-columns: 1fr; gap: 20px; }
+    .horizontal-card img { height: 200px; }
+
+    /* Booking form */
     .form-row { grid-template-columns: 1fr; }
+    .booking-card { padding: 25px 18px; }
+
+    /* Modal */
+    .modal-content { margin: 8% auto; padding: 20px 15px; width: 95%; }
+    .modal-track img { max-height: 220px; }
+    .modal h2 { font-size: 1.5rem; }
+
+    /* Footer */
+    .footer-grid { grid-template-columns: 1fr; gap: 25px; }
     .footer-bottom { flex-direction: column; text-align: center; gap: 15px; }
-    .section { padding: 50px 5%; }
+
+    /* WhatsApp float — smaller on mobile */
+    .whatsapp-float { padding: 12px 18px; font-size: 14px; }
 }
 
-
-/* Mobile screen (768px වලට අඩු) සඳහා */
-@media screen and (max-width: 768px) {
-    .hero-slider, .slide {
-        height: 300px !important; /* Mobile එකේදී banner එකේ උස අඩු කරන්න */
-        background-size: 100% 100%; /* Image එක screen එකට fit වෙන්න */
-        background-position: center;
-    }
-
-    .slide-content h1 {
-        font-size: 1.8rem; /* Mobile එකේදී අකුරු ටිකක් කුඩා කරන්න */
-    }
-
-    .slide-content p {
-        font-size: 1rem;
-    }
+/* ========================================= */
+/* 9. SMALL PHONE (≤ 480px)                  */
+/* ========================================= */
+@media screen and (max-width: 480px) {
+    .slide-content h1 { font-size: 1.4rem; }
+    .hero-btn, .btn-submit { padding: 11px 18px; font-size: 13px; }
+    .card-content h3 { font-size: 1.15rem; }
 }
 
+/* Footer contact link hover */
+.footer-contact a:hover { color: #ffb347 !important; }
 
-/* Animations */
+/* Tap highlight removed for better mobile UX */
+a, button { -webkit-tap-highlight-color: transparent; }
+
+/* ========================================= */
+/* 10. ANIMATIONS                            */
+/* ========================================= */
 .reveal { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.5, 0, 0, 1); }
 .reveal.active { opacity: 1; transform: translateY(0); }
- 
+
