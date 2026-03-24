@@ -49,10 +49,10 @@
   </div>
 
   <nav class="navbar">
-    <div class="navbar-brand">
+    <a href="#" class="navbar-brand" style="text-decoration:none;">
       <img src="images/logo.png" alt="Jayasinghe Tours Logo">
       <h2>Jayasinghe Tours</h2>
-    </div>
+    </a>
     <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
@@ -260,7 +260,16 @@
             <option value="Custom">Send your own itinerary</option>
           </optgroup>
         </select>
-        <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Submit Inquiry via Email</button>
+        <div class="booking-btn-row">
+          <button type="submit" class="booking-action-btn email-btn">
+            <i class="fas fa-envelope"></i>
+            <span>Email Us</span>
+          </button>
+          <a id="whatsapp-booking-btn" href="https://wa.me/94787077007?text=Hi%2C%20I%20want%20to%20make%20a%20booking" class="booking-action-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp Us</span>
+          </a>
+        </div>
       </form>
     </div>
   </section>
@@ -298,8 +307,9 @@
         <h3>Contact Us</h3>
         <ul>
           <li><i class="fas fa-map-marker-alt"></i> Katunayake, Western Province, Sri Lanka</li>
-          <li><i class="fas fa-phone-alt"></i> +94 787 077 007</li>
-          <li><i class="fas fa-envelope"></i> booking@jayasinghetours.com</li>
+          <li><i class="fas fa-phone-alt"></i> <a href="tel:+94787077007" style="color:#cbd5e0; text-decoration:none;">+94 787 077 007</a></li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:booking@jayasinghetours.com" style="color:#cbd5e0; text-decoration:none;">booking@jayasinghetours.com</a></li>
+          <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/94787077007" target="_blank" rel="noopener noreferrer" style="color:#cbd5e0; text-decoration:none;">WhatsApp Us</a></li>
           <li><i class="fas fa-clock"></i> 24/7 Customer Support</li>
         </ul>
       </div>
@@ -349,8 +359,8 @@
       <span class="close" onclick="closeModal('axio')">&times;</span>
       <div class="modal-slider">
         <div class="modal-track" id="track-axio">
-          <img src="images/axio1.webp" alt="Axio Front" loading="lazy">
-          <img src="images/axio.jpg"
+          <img src="images/axio.jpg" alt="Axio Front" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1621021544264-0218d6e9ae29?q=80&w=800&auto=format&fit=crop"
             alt="Axio Side">
         </div>
         <button class="slider-btn left" onclick="moveModalGallery('axio', -1)">&#10094;</button>
