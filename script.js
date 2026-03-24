@@ -137,48 +137,88 @@ window.onclick = function(event) {
 };
 
 // ==========================================
-// 3. WHATSAPP BOOKING LOGIC
+// 3. BOOKING FORM LOGIC (EMAIL + WHATSAPP)
 // ==========================================
+
+// Email submit button - opens mail client with booking details
 window.sendBooking = function(event) {
-  event.preventDefault(); 
-  
-  const name = document.getElementById('name').value;
-  const date = document.getElementById('date').value;
+  event.preventDefault();
+
+  const name    = document.getElementById('name').value;
+  const date    = document.getElementById('date').value;
   const service = document.getElementById('service').value;
-  
-  const whatsappMessage = `Hello Jayasinghe Tours!%0A%0A` +
-                          `I would like to make an inquiry:%0A` +
-                          `*Name:* ${name}%0A` +
-                          `*Date:* ${date}%0A` +
-                          `*Selected Tour/Car:* ${service}%0A%0A` +
-                          `Please let me know the details and availability.`;
-                          
-  const phone = "94787077007";
-  window.open(`https://wa.me/${phone}?text=${whatsappMessage}`, '_blank');
+
+  const subject = encodeURIComponent(`Booking Inquiry – ${service}`);
+  const body    = encodeURIComponent(
+    `Hello Jayasinghe Tours,\n\n` +
+    `I would like to make a booking:\n` +
+    `Name: ${name}\n` +
+    `Date: ${date}\n` +
+    `Service: ${service}\n\n` +
+    `Please let me know the details and availability.\n\nThank you.`
+  );
+
+  window.location.href = `mailto:booking@jayasinghetours.com?subject=${subject}&body=${body}`;
 };
+
+// WhatsApp booking button — update link dynamically based on form values
+function updateWhatsAppBookingLink() {
+  const btn     = document.getElementById('whatsapp-booking-btn');
+  if (!btn) return;
+  const name    = (document.getElementById('name')?.value    || '').trim();
+  const date    = (document.getElementById('date')?.value    || '').trim();
+  const service = (document.getElementById('service')?.value || '').trim();
+
+  let msg = 'Hi, I want to make a booking inquiry.';
+  if (service) {
+    msg = `Hi Jayasinghe Tours!%0A%0A` +
+          `I would like to book:%0A` +
+          `*Name:* ${encodeURIComponent(name || 'N/A')}%0A` +
+          `*Date:* ${encodeURIComponent(date || 'N/A')}%0A` +
+          `*Service:* ${encodeURIComponent(service)}%0A%0A` +
+          `Please confirm availability. Thank you!`;
+  }
+  btn.href = `https://wa.me/94787077007?text=${msg}`;
+}
+
+// Attach listeners when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  ['name','date','service'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('change', updateWhatsAppBookingLink);
+    if (el) el.addEventListener('input',  updateWhatsAppBookingLink);
+  });
+  updateWhatsAppBookingLink();
+});
 
 // ==========================================
 // 4. SCROLL ANIMATIONS (Reveal)
 // ==========================================
-const observerOptions = {
-  threshold: 0.15,
-  rootMargin: "0px 0px -50px 0px"
-};
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('active');
-      observer.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
+// Fallback for browsers without IntersectionObserver (old Safari, IE)
+if (!('IntersectionObserver' in window)) {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+} else {
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px"
+  };
 
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.reveal').forEach(el => {
-    observer.observe(el);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.reveal').forEach(el => {
+      observer.observe(el);
+    });
   });
-});
+}
 
 // ==========================================
 // 5. SMART WHATSAPP BUTTON
