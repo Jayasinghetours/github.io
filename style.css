@@ -22,7 +22,6 @@
 
 html {
     scroll-behavior: smooth;
-    -webkit-scroll-behavior: smooth;
 }
 
 body {
@@ -709,16 +708,15 @@ textarea:focus {
     transform: translateY(-50%);
     background: rgba(255, 255, 255, 0.1);
     color: white;
-    border: none;
     width: 50px;
     height: 50px;
     cursor: pointer;
     font-size: 18px;
     border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     z-index: 10;
     transition: 0.3s;
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .slider-btn.left {
@@ -854,58 +852,64 @@ button {
 @media screen and (max-width: 768px) {
     /* Hero Banner Mobile */
     .hero-slider {
-        height: 75vh;
-        height: 75dvh;
-        min-height: 450px;
+        height: 100vh;   /* fallback */
+        height: 100svh;  /* small viewport height — accounts for mobile browser chrome */
+        min-height: 500px;
+        max-height: 700px;
     }
 
     .slide {
         background-size: cover;
-        background-position: center top;
+        background-position: center center;
+        /* Disable Ken Burns scale on mobile to prevent image crop */
+        animation: none !important;
+    }
+
+    .active-slide {
+        animation: none !important;
     }
 
     .slide-content {
-        padding: 30px 20px;
-        align-self: center;
-        width: 90%;
+        padding: 28px 22px;
+        width: 88%;
+        max-width: 420px;
         margin: 0 auto;
-        background: rgba(18, 18, 18, 0.7);
-    }
-
-    @supports (backdrop-filter: blur(15px)) or (-webkit-backdrop-filter: blur(15px)) {
-        .slide-content {
-            background: rgba(0, 0, 0, 0.35);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-    }
-
-    .slide-content {
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 15px;
+        background: rgba(10, 10, 10, 0.65);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 16px;
         text-align: center;
     }
 
+    @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+        .slide-content {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+    }
+
     .slide-content h1 {
-        font-size: 2rem;
-        line-height: 1.1;
+        font-size: 1.9rem;
+        line-height: 1.15;
         margin-bottom: 10px;
         font-weight: 700;
         color: var(--white);
+        letter-spacing: 0;
     }
 
     .slide-content p {
-        font-size: 0.95rem;
-        line-height: 1.4;
-        margin-bottom: 25px;
-        color: var(--text-light);
+        font-size: 0.92rem;
+        line-height: 1.5;
+        margin-bottom: 22px;
+        color: rgba(255, 255, 255, 0.88);
     }
 
     .hero-btn {
         width: 100%;
         border-radius: 12px;
-        padding: 18px;
+        padding: 16px 20px;
         font-weight: 600;
+        font-size: 13px;
         justify-content: center;
     }
 
@@ -954,7 +958,6 @@ button {
     .cards-grid {
         grid-template-columns: 1fr;
         gap: 25px;
-        padding: 0 5%;
     }
 
     .horizontal-card {
@@ -1038,24 +1041,59 @@ button {
 
 @media screen and (max-width: 480px) {
     .hero-slider {
-        height: 65vh;
-        height: 65dvh;
-        min-height: 400px;
+        height: 100vh;   /* fallback */
+        height: 100svh;  /* small viewport height — accounts for mobile browser chrome */
+        min-height: 480px;
+        max-height: 680px;
+    }
+
+    .slide-content {
+        width: 92%;
+        padding: 24px 18px;
     }
 
     .slide-content h1 {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
+        line-height: 1.2;
     }
 
     .slide-content p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        margin-bottom: 18px;
+    }
+
+    .hero-btn {
+        padding: 14px 16px;
+        font-size: 12px;
     }
 
     .section-header h2 {
         font-size: 1.6rem;
     }
-    
+
     .horizontal-card img {
-        height: 220px;
+        height: 200px;
+    }
+
+    .dots-container {
+        bottom: 20px;
+    }
+}
+
+/* Very small phones (iPhone SE etc.) */
+@media screen and (max-width: 375px) {
+    .slide-content h1 {
+        font-size: 1.4rem;
+    }
+
+    .slide-content p {
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+    }
+
+    .hero-btn {
+        padding: 13px 14px;
+        font-size: 11px;
+        gap: 7px;
     }
 }
