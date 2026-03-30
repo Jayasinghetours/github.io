@@ -209,18 +209,18 @@ a, button { -webkit-tap-highlight-color: transparent; }
 /* ========================================= */
 @media screen and (max-width: 768px) {
     /* Hero Banner Mobile */
-    .hero-slider { height: 100vh; height: 100dvh; min-height: 500px; }
-    .slide { background-size: cover; background-position: center; }
+    .hero-slider { height: 75vh; height: 75dvh; min-height: 450px; }
+    .slide { background-size: cover; background-position: center top; }
     .slide-content { 
-        padding: 40px 25px; align-self: flex-end; width: 92%; margin: 0 auto 6vh; 
-        background: rgba(18, 18, 18, 0.85);
+        padding: 30px 20px; align-self: center; width: 90%; margin: 0 auto; 
+        background: rgba(18, 18, 18, 0.7);
     }
     @supports (backdrop-filter: blur(15px)) or (-webkit-backdrop-filter: blur(15px)) {
-        .slide-content { background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); }
+        .slide-content { background: rgba(0, 0, 0, 0.35); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
     }
-    .slide-content { border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; text-align: center; }
-    .slide-content h1 { font-size: 2.2rem; line-height: 1.1; margin-bottom: 12px; font-weight: 700; color: var(--white); }
-    .slide-content p { font-size: 1rem; line-height: 1.5; margin-bottom: 30px; color: var(--text-light); }
+    .slide-content { border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; text-align: center; }
+    .slide-content h1 { font-size: 2rem; line-height: 1.1; margin-bottom: 10px; font-weight: 700; color: var(--white); }
+    .slide-content p { font-size: 0.95rem; line-height: 1.4; margin-bottom: 25px; color: var(--text-light); }
     .hero-btn { width: 100%; border-radius: 12px; padding: 18px; font-weight: 600; justify-content: center; }
 
     /* Navbar Mobile */
@@ -264,6 +264,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
 }
 
 @media screen and (max-width: 480px) {
-    .slide-content h1 { font-size: 1.8rem; }
+    .hero-slider { height: 65vh; height: 65dvh; min-height: 400px; }
+    .slide-content h1 { font-size: 1.7rem; }
+    .slide-content p { font-size: 0.9rem; }
     .section-header h2 { font-size: 1.7rem; }
 }
