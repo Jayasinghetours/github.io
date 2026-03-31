@@ -200,78 +200,94 @@ body {
 }
 
 /* ========================================= */
-/* 4. HERO SLIDER & TEXT EFFECT              */
+/* 4. HERO SLIDER — NATURAL IMAGE HEIGHT      */
 /* ========================================= */
+
+/*
+ * ARCHITECTURE: CSS Grid Stacking
+ * ─────────────────────────────────────────────────
+ * All slides share grid-area:1/1 so they stack in the
+ * same cell. The .slide img uses height:auto so the grid
+ * cell height = image’s natural proportional height → zero crop.
+ * Inactive slides have opacity:0 but still occupy space
+ * (same image dimensions) so the container never jumps.
+ */
 .hero-slider {
+    display: grid;
     width: 100%;
-    height: 80vh;
-    min-height: 420px;
-    max-height: 800px;
-    position: relative;
     overflow: hidden;
     background: #000;
+    /* No fixed height — image defines the height */
 }
 
 .slide {
-    position: absolute;
-    inset: 0;
+    grid-area: 1 / 1;          /* Stack ALL slides in same cell */
+    position: relative;
     width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
+    pointer-events: none;
+    z-index: 0;
     overflow: hidden;
-}
-
-/* Background image as real <img> tag — fixes mobile crop & jitter */
-.slide-bg-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    display: block;
-    transform: scale(1);
-    will-change: transform;
-}
-
-/* Dark gradient overlay replaces ::before pseudo */
-.slide-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.25) 0%,
-        rgba(0, 0, 0, 0.75) 100%
-    );
-    z-index: 1;
 }
 
 .active-slide {
     opacity: 1;
     z-index: 1;
+    pointer-events: auto;
 }
 
+/*
+ * The KEY change: width:100% + height:auto lets the image
+ * display at its natural proportional size — no container
+ * is forcing it to fill an arbitrary vh height, so
+ * object-fit:cover has nothing to crop.
+ */
+.slide-bg-img {
+    display: block;
+    width: 100%;
+    height: auto;              /* Natural height — no crop */
+    max-height: 88vh;          /* Cap: never taller than viewport on huge screens */
+    object-fit: cover;         /* Safe fallback; minimal effect when height:auto */
+    object-position: center center;
+    transform-origin: center center;
+    will-change: transform;
+}
+
+/* Ken Burns: animates transform (not layout), clipped by overflow:hidden */
 .active-slide .slide-bg-img {
     animation: kenBurns 20s ease-in-out infinite alternate;
 }
 
 @keyframes kenBurns {
     from { transform: scale(1); }
-    to   { transform: scale(1.12); }
+    to   { transform: scale(1.08); }
 }
 
+/* Dark gradient overlay */
+.slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.15) 0%,
+        rgba(0, 0, 0, 0.70) 100%
+    );
+    z-index: 1;
+}
+
+/* Text centred on top of image */
 .slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
     text-align: center;
     color: #fff;
-    width: 100%;
+    width: 90%;
     max-width: 900px;
     padding: 0 20px;
-    z-index: 2;
-    position: relative;
 }
 
 .slide-content h1 {
@@ -290,12 +306,15 @@ body {
     color: rgba(255, 255, 255, 0.9);
 }
 
+/* Dots: same grid-area — sits at bottom of the stacked cell */
 .dots-container {
-    position: absolute;
-    bottom: 40px;
-    width: 100%;
-    text-align: center;
+    grid-area: 1 / 1;
+    align-self: end;
+    justify-self: center;
     z-index: 10;
+    padding-bottom: 30px;
+    pointer-events: all;
+    text-align: center;
 }
 
 .dot {
@@ -862,75 +881,50 @@ button {
 }
 
 /* ========================================= */
-/* 11. MEDIA QUERIES (CLEANED & FIXED)       */
-/* ========================================= */
-
-/* ========================================= */
-/* 11. MEDIA QUERIES — MOBILE FIRST          */
+/* 11. MEDIA QUERIES                          */
 /* ========================================= */
 
 @media screen and (max-width: 768px) {
 
-    /* ── Hero Banner: use aspect-ratio so landscape images never get cropped ──
-     * On mobile portrait, a vh height makes the container TALLER than the
-     * image is wide → object-fit:cover zooms in heavily → only half visible.
-     * aspect-ratio: 16/9 keeps the container the SAME shape as the image.
-     * Width is always 100vw, so height = 100vw × 9/16 ≈ 219px on a 390px phone.
-     */
-    .hero-slider {
-        height: auto;
-        aspect-ratio: 16 / 9;
-        min-height: 200px;
-        max-height: 420px;
+    /* ── Hero — Natural height already works; just tune text & disable Ken Burns ── */
+    .slide-bg-img {
+        max-height: 75vw;       /* 390px phone → ~292px; shows full landscape image */
     }
 
     /* Ken Burns off on mobile — avoids GPU jitter */
     .active-slide .slide-bg-img {
         animation: none;
-        transform: scale(1) !important;
+        transform: none;
     }
 
-    /* Cover still used, but crop is minimal because container shape matches image */
-    .slide-bg-img {
-        object-fit: cover;
-        object-position: center center;
-    }
-
-    /* Hero text card */
+    /* Text overlay on mobile */
     .slide-content {
-        padding: 28px 22px;
-        width: 88%;
-        max-width: 420px;
-        margin: 0 auto;
-        background: rgba(10, 10, 10, 0.60);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 18px;
-        text-align: center;
-        -webkit-backdrop-filter: blur(12px);
-        backdrop-filter: blur(12px);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        padding: 0 15px;
     }
 
     .slide-content h1 {
         font-size: 1.9rem;
         line-height: 1.2;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         font-weight: 700;
-        color: var(--white);
         letter-spacing: 0;
     }
 
     .slide-content p {
         font-size: 1rem;
         line-height: 1.5;
-        margin-bottom: 22px;
-        color: rgba(255, 255, 255, 0.88);
+        margin-bottom: 20px;
     }
 
     .hero-btn {
-        width: 100%;
-        border-radius: 12px;
-        padding: 14px 20px;
-        font-weight: 600;
+        width: auto;
+        border-radius: 8px;
+        padding: 13px 22px;
         font-size: 13px;
         justify-content: center;
     }
@@ -1079,27 +1073,25 @@ button {
 /* ── Small Phones (≤480px) ── */
 @media screen and (max-width: 480px) {
 
-    /* aspect-ratio inherited from 768px rule — no hero height override needed */
-
     .slide-content h1 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
     .slide-content p {
-        font-size: 0.88rem;
+        font-size: 0.85rem;
     }
 
     .hero-btn {
-        padding: 12px 16px;
+        padding: 11px 18px;
         font-size: 12px;
     }
 
     .section-header h2 {
-        font-size: 1.6rem;
+        font-size: 1.55rem;
     }
 
     .horizontal-card img {
-        height: 190px;
+        height: 185px;
     }
 
     .navbar-brand h2 {
@@ -1110,15 +1102,13 @@ button {
 /* ── Very Small Phones (≤375px) ── */
 @media screen and (max-width: 375px) {
 
-    /* aspect-ratio inherited — no height override needed */
-
     .slide-content {
-        width: 94%;
-        padding: 18px 14px;
+        width: 95%;
+        padding: 0 12px;
     }
 
     .slide-content h1 {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
     }
 
     .slide-content p {
