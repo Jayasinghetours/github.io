@@ -69,27 +69,14 @@ body {
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 @keyframes pulse {
-    0% {
-        opacity: 0.6;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0.6;
-    }
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
 }
 
 /* ========================================= */
@@ -229,13 +216,8 @@ body {
 }
 
 @keyframes kenBurns {
-    from {
-        transform: scale(1);
-    }
-
-    to {
-        transform: scale(1.15);
-    }
+    from { transform: scale(1); }
+    to { transform: scale(1.15); }
 }
 
 .slide::before {
@@ -847,25 +829,23 @@ button {
 }
 
 /* ========================================= */
-/* 11. MEDIA QUERIES (CONSOLIDATED)          */
+/* 11. MEDIA QUERIES (CONSOLIDATED & CLEANED)*/
 /* ========================================= */
 @media screen and (max-width: 768px) {
-    /* Hero Banner Mobile — reduced height so image isn't over-zoomed */
+    /* Hero Banner Mobile - Perfectly Scaled */
     .hero-slider {
-        height: 60vh;
-        min-height: 380px;
-        max-height: 520px;
+        height: 55vh; 
+        min-height: 350px;
     }
 
     .slide {
+        background-position: center center;
         background-size: cover;
-        background-position: center;
     }
 
     .slide-content {
-        padding: 28px 22px;
-        width: 88%;
-        max-width: 420px;
+        padding: 20px 15px;
+        width: 95%;
         margin: 0 auto;
         background: rgba(10, 10, 10, 0.65);
         border: 1px solid rgba(255, 255, 255, 0.12);
@@ -882,8 +862,8 @@ button {
     }
 
     .slide-content h1 {
-        font-size: 1.9rem;
-        line-height: 1.15;
+        font-size: 1.6rem;
+        line-height: 1.2;
         margin-bottom: 10px;
         font-weight: 700;
         color: var(--white);
@@ -891,7 +871,7 @@ button {
     }
 
     .slide-content p {
-        font-size: 0.92rem;
+        font-size: 0.9rem;
         line-height: 1.5;
         margin-bottom: 22px;
         color: rgba(255, 255, 255, 0.88);
@@ -900,7 +880,7 @@ button {
     .hero-btn {
         width: 100%;
         border-radius: 12px;
-        padding: 16px 20px;
+        padding: 14px 20px;
         font-weight: 600;
         font-size: 13px;
         justify-content: center;
@@ -947,22 +927,25 @@ button {
         transform: translateY(0);
     }
 
-    /* Cards Mobile Grid (Single Column) */
+    /* Cards Mobile Grid */
     .cards-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 25px;
+        padding: 0 10px;
     }
 
     .horizontal-card {
         flex-direction: column;
         height: auto;
         border-radius: 15px;
+        margin-bottom: 20px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
     }
 
     .horizontal-card img {
         width: 100%;
-        height: 250px;
+        height: 220px;
         border-radius: 15px 15px 0 0;
     }
 
@@ -1093,59 +1076,5 @@ button {
         padding: 13px 14px;
         font-size: 11px;
         gap: 7px;
-    }
-}
-/* ========================================= */
-/* MOBILE OPTIMIZED HERO & CARDS             */
-/* ========================================= */
-@media screen and (max-width: 768px) {
-    /* Hero Banner eke diga (height) adu kala */
-    .hero-slider {
-        height: 55vh !important; 
-        min-height: 350px !important;
-    }
-
-    /* Image eka cut wena eka adu karanna center kala */
-    .hero-slider .slide {
-        background-position: center center !important;
-        background-size: cover !important;
-    }
-
-    /* Text eka banner eka athule adjust kirima */
-    .slide-content {
-        padding: 0 15px !important;
-        width: 95% !important;
-    }
-
-    .slide-content h1 {
-        font-size: 1.6rem !important; /* Akuru thawa podi kala */
-        margin-bottom: 10px !important;
-        line-height: 1.2;
-    }
-
-    .slide-content p {
-        font-size: 0.9rem !important;
-        margin-bottom: 15px !important;
-        max-width: 100% !important;
-    }
-
-    .hero-btn {
-        padding: 10px 20px !important;
-        font-size: 0.85rem !important;
-    }
-
-    /* Cards mobile wata thawa improve kirima */
-    .cards-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        padding: 0 15px !important;
-    }
-
-    .horizontal-card {
-        margin-bottom: 20px !important;
-    }
-
-    .horizontal-card img {
-        height: 220px !important; /* Image height eka adu kala */
     }
 }
