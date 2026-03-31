@@ -1095,3 +1095,57 @@ button {
         gap: 7px;
     }
 }
+/* ========================================= */
+/* MOBILE OPTIMIZED HERO & CARDS             */
+/* ========================================= */
+@media screen and (max-width: 768px) {
+    /* Hero Banner eke diga (height) adu kala */
+    .hero-slider {
+        height: 55vh !important; 
+        min-height: 350px !important;
+    }
+
+    /* Image eka cut wena eka adu karanna center kala */
+    .hero-slider .slide {
+        background-position: center center !important;
+        background-size: cover !important;
+    }
+
+    /* Text eka banner eka athule adjust kirima */
+    .slide-content {
+        padding: 0 15px !important;
+        width: 95% !important;
+    }
+
+    .slide-content h1 {
+        font-size: 1.6rem !important; /* Akuru thawa podi kala */
+        margin-bottom: 10px !important;
+        line-height: 1.2;
+    }
+
+    .slide-content p {
+        font-size: 0.9rem !important;
+        margin-bottom: 15px !important;
+        max-width: 100% !important;
+    }
+
+    .hero-btn {
+        padding: 10px 20px !important;
+        font-size: 0.85rem !important;
+    }
+
+    /* Cards mobile wata thawa improve kirima */
+    .cards-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 0 15px !important;
+    }
+
+    .horizontal-card {
+        margin-bottom: 20px !important;
+    }
+
+    .horizontal-card img {
+        height: 220px !important; /* Image height eka adu kala */
+    }
+}
