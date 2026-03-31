@@ -69,21 +69,25 @@
   </nav>
 
   <header class="hero-slider">
-    <div class="slide active-slide"
-      style="background-image: url('images/Carrentalbanner.webp');">
-      <div class="slide-content">
-        <h1>Premium Car Rental</h1>
-        <p>Explore Sri Lanka with our professional driver-guides.</p>
+    <!-- Screen-reader only H1 for SEO -->
+    <h1 class="sr-only">Jayasinghe Tours - Premium Sri Lanka Car Rental & Private Tours</h1>
+
+    <div class="slide active-slide">
+      <img class="slide-bg-img" src="images/Carrentalbanner.webp" alt="Premium Car Rental Sri Lanka - Professional Driver Guides" fetchpriority="high">
+      <div class="slide-overlay"></div>
+      <div class="slide-cta">
         <a href="#booking" class="hero-btn"><i class="fas fa-car"></i> Book Your Ride</a>
       </div>
     </div>
-    <div class="slide" style="background-image: url('banner1.webp');">
-      <div class="slide-content">
-        <h1>Unforgettable Tours</h1>
-        <p>Sigiriya, Kandy, Ella & Yala Safaris</p>
-        <a href="#tours" class="hero-btn"><i class="fas fa-map"></i> View Tours</a>
+
+    <div class="slide">
+      <img class="slide-bg-img" src="banner1.webp" alt="Unforgettable Sri Lanka Tours - Sigiriya, Kandy, Ella & Yala Safaris" loading="lazy">
+      <div class="slide-overlay"></div>
+      <div class="slide-cta">
+        <a href="#tours" class="hero-btn"><i class="fas fa-map-marked-alt"></i> View Tours</a>
       </div>
     </div>
+
     <div class="dots-container">
       <span class="dot active-dot" onclick="currentSlide(0)"></span>
       <span class="dot" onclick="currentSlide(1)"></span>
