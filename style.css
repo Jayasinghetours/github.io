@@ -203,7 +203,10 @@ body {
 /* 4. HERO SLIDER & TEXT EFFECT              */
 /* ========================================= */
 .hero-slider {
-    height: 85vh;
+    width: 100%;
+    height: 80vh;
+    min-height: 420px;
+    max-height: 800px;
     position: relative;
     overflow: hidden;
     background: #000;
@@ -868,27 +871,29 @@ button {
 
 @media screen and (max-width: 768px) {
 
-    /* ── Hero Banner — Landscape image friendly height ── */
+    /* ── Hero Banner: use aspect-ratio so landscape images never get cropped ──
+     * On mobile portrait, a vh height makes the container TALLER than the
+     * image is wide → object-fit:cover zooms in heavily → only half visible.
+     * aspect-ratio: 16/9 keeps the container the SAME shape as the image.
+     * Width is always 100vw, so height = 100vw × 9/16 ≈ 219px on a 390px phone.
+     */
     .hero-slider {
-        /*
-         * 100svh was too tall for landscape banners → heavy crop, only centre visible.
-         * 58vh gives a wide banner feel without cropping the panoramic image.
-         */
-        height: 58vh;
-        min-height: 300px;
-        max-height: 500px;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        min-height: 200px;
+        max-height: 420px;
     }
 
-    /* Ken Burns only on desktop — avoids jitter on mobile */
+    /* Ken Burns off on mobile — avoids GPU jitter */
     .active-slide .slide-bg-img {
         animation: none;
-        transform: scale(1);
+        transform: scale(1) !important;
     }
 
-    /* Show the landscape image from its best focal point */
+    /* Cover still used, but crop is minimal because container shape matches image */
     .slide-bg-img {
         object-fit: cover;
-        object-position: center 40%;  /* shift slightly up to show scenic content */
+        object-position: center center;
     }
 
     /* Hero text card */
@@ -1074,22 +1079,18 @@ button {
 /* ── Small Phones (≤480px) ── */
 @media screen and (max-width: 480px) {
 
-    .hero-slider {
-        height: 55vh;
-        min-height: 260px;
-        max-height: 400px;
-    }
+    /* aspect-ratio inherited from 768px rule — no hero height override needed */
 
     .slide-content h1 {
-        font-size: 1.55rem;
+        font-size: 1.5rem;
     }
 
     .slide-content p {
-        font-size: 0.9rem;
+        font-size: 0.88rem;
     }
 
     .hero-btn {
-        padding: 13px 16px;
+        padding: 12px 16px;
         font-size: 12px;
     }
 
@@ -1109,24 +1110,20 @@ button {
 /* ── Very Small Phones (≤375px) ── */
 @media screen and (max-width: 375px) {
 
-    .hero-slider {
-        height: 52vh;
-        min-height: 240px;
-        max-height: 360px;
-    }
+    /* aspect-ratio inherited — no height override needed */
 
     .slide-content {
-        width: 92%;
-        padding: 20px 14px;
+        width: 94%;
+        padding: 18px 14px;
     }
 
     .slide-content h1 {
-        font-size: 1.35rem;
+        font-size: 1.25rem;
     }
 
     .slide-content p {
-        font-size: 0.8rem;
-        margin-bottom: 14px;
+        font-size: 0.78rem;
+        margin-bottom: 12px;
     }
 
     .navbar-brand h2 {
