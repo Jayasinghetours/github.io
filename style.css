@@ -31,6 +31,18 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
+/* SEO Helper */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
 /* ========================================= */
 /* 2. PRELOADER                              */
 /* ========================================= */
@@ -69,14 +81,27 @@ body {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes pulse {
-    0% { opacity: 0.6; }
-    50% { opacity: 1; }
-    100% { opacity: 0.6; }
+    0% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
 }
 
 /* ========================================= */
@@ -174,88 +199,102 @@ body {
     transform-origin: 1px;
 }
 
-.hamburger.active span:nth-child(1) { transform: rotate(45deg); }
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) { transform: rotate(-45deg); }
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+}
 
 /* ========================================= */
-/* 4. HERO SLIDER & TEXT EFFECT              */
+/* 4. HERO SLIDER                             */
 /* ========================================= */
+
 .hero-slider {
-    height: 85vh;
+    width: 100%;
     position: relative;
     overflow: hidden;
-    background: #000;
+    background: #0a0a0a;
+    /* Fixed Ratio 2.6:1 matches the panoramic banners perfectly */
+    aspect-ratio: 2.6 / 1;
 }
 
 .slide {
     position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .active-slide {
     opacity: 1;
     z-index: 1;
-    animation: kenBurns 20s infinite alternate;
+    pointer-events: auto;
+}
+
+.slide-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    /* Covers the container perfectly without cropping the sides of the 2.6:1 banners */
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    transform-origin: center center;
+    will-change: transform;
+}
+
+.active-slide .slide-bg-img {
+    animation: kenBurns 20s ease-in-out infinite alternate;
 }
 
 @keyframes kenBurns {
-    from { transform: scale(1); }
-    to { transform: scale(1.15); }
+    from { transform: scale(1);    }
+    to   { transform: scale(1.06); }
 }
 
-.slide::before {
-    content: "";
+.slide-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
+    inset: 0;
+    /* Subtle darken at bottom to make button stand out */
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.05) 0%,
+        rgba(0, 0, 0, 0.45) 100%
+    );
     z-index: 1;
 }
 
-.slide-content {
-    text-align: center;
-    color: #fff;
+/* Repositioned Call to Action Button */
+.slide-cta {
+    position: absolute;
+    bottom: 12%; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
     width: 100%;
-    max-width: 900px;
-    padding: 0 20px;
-    z-index: 2;
-    position: relative;
-}
-
-.slide-content h1 {
-    font-size: 4.5rem;
-    font-weight: 800;
-    margin-bottom: 20px;
-    letter-spacing: -1px;
-    line-height: 1.1;
-    text-transform: uppercase;
-}
-
-.slide-content p {
-    font-size: 1.5rem;
-    font-weight: 400;
-    margin-bottom: 35px;
-    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
 }
 
 .dots-container {
     position: absolute;
-    bottom: 40px;
+    bottom: 25px;
+    left: 0;
     width: 100%;
     text-align: center;
     z-index: 10;
 }
+
 
 .dot {
     display: inline-block;
@@ -693,8 +732,13 @@ textarea:focus {
     backdrop-filter: blur(5px);
 }
 
-.slider-btn.left { left: 20px; }
-.slider-btn.right { right: 20px; }
+.slider-btn.left {
+    left: 20px;
+}
+
+.slider-btn.right {
+    right: 20px;
+}
 
 .slider-btn:hover {
     background: var(--primary-gold);
@@ -799,7 +843,8 @@ textarea:focus {
     box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
 }
 
-a, button {
+a,
+button {
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -815,67 +860,31 @@ a, button {
 }
 
 /* ========================================= */
-/* 11. MEDIA QUERIES (CLEANED & FIXED)       */
+/* 11. MEDIA QUERIES                          */
 /* ========================================= */
 
 @media screen and (max-width: 768px) {
-    /* Fixed Hero Banner Mobile */
+
     .hero-slider {
-        height: 55vh; 
-        min-height: 380px;
-        max-height: 520px;
+        /* Maintain the 2.6:1 ratio on mobile to keep the whole banner visible */
+        aspect-ratio: 2.6 / 1;
+        height: auto;
     }
 
-    .slide {
-        background-size: cover;
-        background-position: center center;
-    }
-
-    .slide-content {
-        padding: 25px 20px;
-        width: 90%;
-        max-width: 420px;
-        margin: 0 auto;
-        background: rgba(10, 10, 10, 0.65);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 16px;
-        text-align: center;
-    }
-
-    @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
-        .slide-content {
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-    }
-
-    .slide-content h1 {
-        font-size: 1.8rem;
-        line-height: 1.2;
-        margin-bottom: 10px;
-        font-weight: 700;
-        color: var(--white);
-        letter-spacing: 0;
-    }
-
-    .slide-content p {
-        font-size: 0.95rem;
-        line-height: 1.5;
-        margin-bottom: 22px;
-        color: rgba(255, 255, 255, 0.88);
+    .slide-cta {
+        bottom: 12%;
     }
 
     .hero-btn {
-        width: 100%;
-        border-radius: 12px;
-        padding: 14px 20px;
-        font-weight: 600;
-        font-size: 13px;
-        justify-content: center;
+        padding: 10px 18px;
+        font-size: 11px;
     }
 
-    /* Navbar Mobile Overlay */
+    .dots-container {
+        bottom: 8px;
+    }
+
+    /* ── Navbar Mobile Overlay ── */
     .hamburger {
         display: block;
         z-index: 1001;
@@ -905,44 +914,55 @@ a, button {
         color: var(--white);
     }
 
-    /* Cards Mobile Grid */
+    /* ── Cards — touch-optimized, no hover lift ── */
     .cards-grid {
         display: flex;
         flex-direction: column;
-        gap: 25px;
-        padding: 0 10px;
+        gap: 20px;
+        padding: 0 5px;
     }
 
     .horizontal-card {
         height: auto;
-        border-radius: 15px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-        margin-bottom: 20px;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        margin-bottom: 0;
+        /* Disable desktop hover lift on touch */
+        transform: none !important;
     }
 
+    /* Card tap feedback instead of hover lift */
+    .horizontal-card:active {
+        transform: scale(0.98) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Gold underline still animates on tap ─ keep it */
     .horizontal-card img {
         width: 100%;
-        height: 220px;
-        border-radius: 15px 15px 0 0;
+        height: 210px;
+        border-radius: 16px 16px 0 0;
         object-fit: cover;
+        /* Disable desktop image zoom on hover */
+        transform: none !important;
     }
 
     .card-content {
-        padding: 25px 20px;
+        padding: 22px 18px;
     }
 
     .card-content h3 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         margin-bottom: 6px;
     }
 
-    /* General Layout Adjustments */
+    /* ── General Layout ── */
     .section {
-        padding: 60px 6%;
+        padding: 55px 5%;
     }
 
     .section-header {
-        margin-bottom: 40px;
+        margin-bottom: 35px;
     }
 
     .section-header h2 {
@@ -951,28 +971,31 @@ a, button {
 
     .features-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 18px;
     }
 
     .feature-item {
-        padding: 30px 20px;
+        padding: 28px 20px;
+        transform: none !important;  /* disable hover lift on mobile */
     }
 
-    /* Booking Card */
+    /* ── Booking Card ── */
     .booking-card {
-        padding: 35px 20px;
+        padding: 30px 18px;
         width: 100%;
-        border-radius: 0;
+        border-radius: 12px;
     }
 
     .form-row {
         grid-template-columns: 1fr;
-        gap: 15px;
+        gap: 12px;
     }
 
-    input, select, textarea {
-        font-size: 16px;
-        padding: 16px;
+    input,
+    select,
+    textarea {
+        font-size: 16px;  /* prevents iOS zoom */
+        padding: 14px 16px;
     }
 
     .booking-btn-row {
@@ -980,22 +1003,33 @@ a, button {
         gap: 12px;
     }
 
-    /* Modals Mobile */
+    /* ── Modals ── */
     .modal-content {
         width: 94%;
-        padding: 20px 15px;
-        margin: 5vh auto;
+        padding: 22px 16px;
+        margin: 4vh auto;
     }
 
     .modal-features {
         grid-template-columns: 1fr;
         gap: 10px;
     }
+
+    /* ── Footer ── */
+    .footer-grid {
+        gap: 35px;
+    }
+
+    .premium-footer {
+        padding: 60px 6% 40px;
+    }
 }
 
+/* ── Small Phones (≤480px) ── */
 @media screen and (max-width: 480px) {
+
     .slide-content h1 {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
 
     .slide-content p {
@@ -1003,31 +1037,46 @@ a, button {
     }
 
     .hero-btn {
-        padding: 12px 16px;
+        padding: 11px 18px;
         font-size: 12px;
     }
 
     .section-header h2 {
-        font-size: 1.6rem;
+        font-size: 1.55rem;
     }
 
     .horizontal-card img {
-        height: 200px;
+        height: 185px;
+    }
+
+    .navbar-brand h2 {
+        font-size: 16px;
     }
 }
 
+/* ── Very Small Phones (≤375px) ── */
 @media screen and (max-width: 375px) {
+
     .hero-slider {
-        height: 50vh;
-        min-height: 350px;
+        /* On very small phones, banner starts to get too thin at 2.6:1.
+           Allow a slightly "taller" box and use object-fit: contain to ensure full image visibility. */
+        aspect-ratio: 2.2 / 1; 
     }
 
-    .slide-content h1 {
-        font-size: 1.4rem;
+    .slide-bg-img {
+        object-fit: contain;
     }
 
-    .slide-content p {
-        font-size: 0.8rem;
-        margin-bottom: 15px;
+    .slide-cta {
+        bottom: 8%;
+    }
+
+    .hero-btn {
+        padding: 8px 12px;
+        font-size: 10px;
+    }
+
+    .navbar-brand h2 {
+        font-size: 14px;
     }
 }
