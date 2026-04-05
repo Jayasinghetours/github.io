@@ -400,3 +400,31 @@ window.addEventListener('scroll', function () {
     chatWidget.style.bottom = '25px';
   }
 });
+
+// ==========================================
+// 6. SWIPER CAROUSELS INITIALIZATION
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+  const autoPlaySettings = { delay: 3000, disableOnInteraction: false };
+
+  new Swiper('.fleet-swiper', {
+    slidesPerView: 1, spaceBetween: 20, autoplay: autoPlaySettings,
+    navigation: { nextEl: '.fleet-swiper .swiper-button-next', prevEl: '.fleet-swiper .swiper-button-prev' },
+    pagination: { el: '.fleet-swiper .swiper-pagination', clickable: true },
+    breakpoints: { 768: { slidesPerView: 2, spaceBetween: 30 }, 1024: { slidesPerView: 3, spaceBetween: 40 } }
+  });
+
+  new Swiper('.tours-swiper', {
+    slidesPerView: 1, spaceBetween: 20, autoplay: autoPlaySettings,
+    navigation: { nextEl: '.tours-swiper .swiper-button-next', prevEl: '.tours-swiper .swiper-button-prev' },
+    pagination: { el: '.tours-swiper .swiper-pagination', clickable: true },
+    breakpoints: { 640: { slidesPerView: 2, spaceBetween: 20 }, 800: { slidesPerView: 3, spaceBetween: 20 }, 1100: { slidesPerView: 4, spaceBetween: 20 }, 1400: { slidesPerView: 6, spaceBetween: 20 } }
+  });
+
+  new Swiper('.packages-swiper', {
+    slidesPerView: 1, spaceBetween: 20, autoplay: autoPlaySettings,
+    navigation: { nextEl: '.packages-swiper .swiper-button-next', prevEl: '.packages-swiper .swiper-button-prev' },
+    pagination: { el: '.packages-swiper .swiper-pagination', clickable: true },
+    breakpoints: { 768: { slidesPerView: 2, spaceBetween: 30 }, 1024: { slidesPerView: 3, spaceBetween: 40 } }
+  });
+});
