@@ -40,6 +40,7 @@
   <link rel="preload" as="image" href="Carrentalbanner.webp">
   <link rel="icon" type="image/png" href="images/fav.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 
 <body>
@@ -105,39 +106,51 @@
       <p>Select a vehicle to view the gallery and book your journey.</p>
     </div>
 
-    <div class="cards-grid">
-      <div class="horizontal-card reveal" onclick="openModal('wagonr')">
-        <img src="images/wagon r.jpg" alt="Suzuki Wagon R" loading="lazy">
-        <div class="card-content">
-          <h3>Suzuki Wagon R</h3>
-          <p class="subtitle">Compact &bull; 2-3 Passengers</p>
-          <p class="desc">Perfect for couples and allround tours. A/C & Android Apple Carplay.</p>
-          <div class="price">From $40 / Day</div>
-          <span class="view-btn">View Details &rarr;</span>
+    <div class="swiper fleet-swiper reveal" style="padding: 20px 5px 60px 5px;">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="height: auto;">
+          <div class="horizontal-card" onclick="openModal('wagonr')" style="height: 100%;">
+            <img src="images/wagon r.jpg" alt="Suzuki Wagon R" loading="lazy">
+            <div class="card-content">
+              <h3>Suzuki Wagon R</h3>
+              <p class="subtitle">Compact &bull; 2-3 Passengers</p>
+              <p class="desc">Perfect for couples and allround tours. A/C & Android Apple Carplay.</p>
+              <div class="price">From $40 / Day</div>
+              <span class="view-btn">View Details &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide" style="height: auto;">
+          <div class="horizontal-card" onclick="openModal('axio')" style="height: 100%;">
+            <img src="images/axio.jpg" alt="Toyota Axio" loading="lazy">
+            <div class="card-content">
+              <h3>Toyota Axio</h3>
+              <p class="subtitle">Sedan &bull; Family Friendly</p>
+              <p class="desc">Premium comfort for long distance island tours.</p>
+              <div class="price">From $55 / Day</div>
+              <span class="view-btn">View Details &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide" style="height: auto;">
+          <div class="horizontal-card" onclick="openModal('vezel')" style="height: 100%;">
+            <img src="images/honda vezel.webp" alt="Honda Vezel" loading="lazy">
+            <div class="card-content">
+              <h3>Honda Vezel</h3>
+              <p class="subtitle">Hybrid &bull; Eco-Friendly</p>
+              <p class="desc">Silent, fuel-efficient ride for the scenic routes.</p>
+              <div class="price">From $65 / Day</div>
+              <span class="view-btn">View Details &rarr;</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="horizontal-card reveal" onclick="openModal('axio')">
-        <img src="images/axio.jpg" alt="Toyota Axio" loading="lazy">
-        <div class="card-content">
-          <h3>Toyota Axio</h3>
-          <p class="subtitle">Sedan &bull; Family Friendly</p>
-          <p class="desc">Premium comfort for long distance island tours.</p>
-          <div class="price">From $55 / Day</div>
-          <span class="view-btn">View Details &rarr;</span>
-        </div>
-      </div>
-
-      <div class="horizontal-card reveal" onclick="openModal('vezel')">
-        <img src="images/honda vezel.webp" alt="Honda Vezel" loading="lazy">
-        <div class="card-content">
-          <h3>Honda Vezel</h3>
-          <p class="subtitle">Hybrid &bull; Eco-Friendly</p>
-          <p class="desc">Silent, fuel-efficient ride for the scenic routes.</p>
-          <div class="price">From $65 / Day</div>
-          <span class="view-btn">View Details &rarr;</span>
-        </div>
-      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
     </div>
   </section>
 
@@ -176,61 +189,77 @@
       <p>Discover the magic of the island with our expert guides.</p>
     </div>
 
-    <div class="cards-grid">
-      <div class="horizontal-card reveal" onclick="openModal('negombo')">
-        <img src="images/negombo-beach.png" alt="Negombo Beach" loading="lazy">
-        <div class="card-content">
-          <h3>Negombo City Tour</h3>
-          <p class="subtitle">Airport to Negombo &bull; 5 Hours</p>
-          <p class="desc">Relax on the golden beaches and explore the vibrant coastal town.</p>
-          <div class="price">40 USD</div>
-          <span class="view-btn">View Details &rarr;</span>
+    <div class="swiper tours-swiper reveal" style="padding: 20px 5px 60px 5px;">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="height: auto;">
+          <div class="horizontal-card" onclick="openModal('negombo')" style="height: 100%;">
+            <img src="images/negombo-beach.png" alt="Negombo Beach" loading="lazy">
+            <div class="card-content">
+              <h3>Negombo City Tour</h3>
+              <p class="subtitle">Airport to Negombo &bull; 5 Hours</p>
+              <p class="desc">Relax on the golden beaches and explore the vibrant coastal town.</p>
+              <div class="price">40 USD</div>
+              <span class="view-btn">View Details &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide" style="height: auto;">
+          <div class="horizontal-card" onclick="openModal('colombo')" style="height: 100%;">
+            <img src="images/colombo-city.png" alt="Colombo City" loading="lazy">
+            <div class="card-content">
+              <h3>Colombo City Tour</h3>
+              <p class="subtitle">Airport to Colombo &bull; 6 Hours</p>
+              <p class="desc">Discover the vibrant capital, from modern skyline to historic temples.</p>
+              <div class="price">60 USD</div>
+              <span class="view-btn">View Details &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide" style="height: auto;">
+          <div class="horizontal-card" onclick="openModal('sigiriya')" style="height: 100%;">
+            <img src="images/sigiriya-rock.png" alt="Sigiriya">
+            <div class="card-content">
+              <h3>Sigiriya & Dambulla 1 Day Tour</h3>
+              <p class="subtitle">Full Day Tour</p>
+              <p class="desc">Climb Lion Rock and explore ancient water gardens.</p>
+              <div class="price">110 USD</div>
+              <span class="view-btn">View Details &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide" style="height: auto;">
+          <div class="horizontal-card" onclick="openModal('kandy')" style="height: 100%;">
+            <img src="images/kandy-temple.png" alt="Kandy">
+            <div class="card-content">
+              <h3>Kandy 1 Day Tour</h3>
+              <p class="subtitle">Full Day Tour</p>
+              <p class="desc">Visit the sacred temple and botanical gardens.</p>
+              <div class="price">110 USD</div>
+              <span class="view-btn">View Details &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide" style="height: auto;">
+          <div class="horizontal-card" onclick="openModal('galle')" style="height: 100%;">
+            <img src="images/galle-fort.jpg" alt="Galle Fort" loading="lazy">
+            <div class="card-content">
+              <h3>Galle 1 Day Tour</h3>
+              <p class="subtitle">Full Day Tour</p>
+              <p class="desc">Explore the historic Dutch Fort, pristine beaches and turtle hatcheries.</p>
+              <div class="price">110 USD</div>
+              <span class="view-btn">View Details &rarr;</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="horizontal-card reveal" onclick="openModal('colombo')">
-        <img src="images/colombo-city.png" alt="Colombo City" loading="lazy">
-        <div class="card-content">
-          <h3>Colombo City Tour</h3>
-          <p class="subtitle">Airport to Colombo &bull; 6 Hours</p>
-          <p class="desc">Discover the vibrant capital, from modern skyline to historic temples.</p>
-          <div class="price">60 USD</div>
-          <span class="view-btn">View Details &rarr;</span>
-        </div>
-      </div>
-
-      <div class="horizontal-card reveal" onclick="openModal('sigiriya')">
-        <img src="images/sigiriya-rock.png" alt="Sigiriya">
-        <div class="card-content">
-          <h3>Sigiriya & Dambulla 1 Day Tour</h3>
-          <p class="subtitle">Full Day Tour</p>
-          <p class="desc">Climb Lion Rock and explore ancient water gardens.</p>
-          <div class="price">110 USD</div>
-          <span class="view-btn">View Details &rarr;</span>
-        </div>
-      </div>
-
-      <div class="horizontal-card reveal" onclick="openModal('kandy')">
-        <img src="images/kandy-temple.png" alt="Kandy">
-        <div class="card-content">
-          <h3>Kandy 1 Day Tour</h3>
-          <p class="subtitle">Full Day Tour</p>
-          <p class="desc">Visit the sacred temple and botanical gardens.</p>
-          <div class="price">110 USD</div>
-          <span class="view-btn">View Details &rarr;</span>
-        </div>
-      </div>
-
-      <div class="horizontal-card reveal" onclick="openModal('galle')">
-        <img src="images/galle-fort.jpg" alt="Galle Fort" loading="lazy">
-        <div class="card-content">
-          <h3>Galle 1 Day Tour</h3>
-          <p class="subtitle">Full Day Tour</p>
-          <p class="desc">Explore the historic Dutch Fort, pristine beaches and turtle hatcheries.</p>
-          <div class="price">110 USD</div>
-          <span class="view-btn">View Details &rarr;</span>
-        </div>
-      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
     </div>
   </section>
 
@@ -240,29 +269,40 @@
       <p>Immersive round-tours designed to give you the ultimate Sri Lankan experience.</p>
     </div>
 
-    <div class="cards-grid">
-      <div class="horizontal-card reveal" onclick="openModal('seven-day')">
-        <img src="images/7day.jpg" alt="7 Days Tour" loading="lazy">
-        <div class="card-content">
-          <h3>7-Day Sri Lanka Explorer</h3>
-          <p class="subtitle">The Perfect Island Getaway</p>
-          <p class="desc">Sigiriya &bull; Kandy &bull; Nuwara Eliya &bull; Ella &bull; Yala &bull; Galle</p>
-          <div class="price">Custom Pricing</div>
-          <span class="view-btn">View Itinerary &rarr;</span>
+    <div class="swiper packages-swiper reveal" style="padding: 20px 5px 60px 5px;">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="height: auto;">
+          <div class="horizontal-card" onclick="openModal('seven-day')" style="height: 100%;">
+            <img src="images/7day.jpg" alt="7 Days Tour" loading="lazy">
+            <div class="card-content">
+              <h3>7-Day Sri Lanka Explorer</h3>
+              <p class="subtitle">The Perfect Island Getaway</p>
+              <p class="desc">Sigiriya &bull; Kandy &bull; Nuwara Eliya &bull; Ella &bull; Yala &bull; Galle</p>
+              <div class="price">Custom Pricing</div>
+              <span class="view-btn">View Itinerary &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide" style="height: auto;">
+          <div class="horizontal-card" onclick="openModal('ten-day')" style="height: 100%;">
+            <img src="images/10day.jpg" alt="10 Days Tour" loading="lazy">
+            <div class="card-content">
+              <h3>10-Day Complete Experience</h3>
+              <p class="subtitle">Ultimate Round Tour</p>
+              <p class="desc">Anuradhapura &bull; Sigiriya &bull; Kandy &bull; Nuwara Eliya &bull; Ella &bull; Yala
+                &bull;
+                Mirissa &bull; Galle</p>
+              <div class="price">Custom Pricing</div>
+              <span class="view-btn">View Itinerary &rarr;</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="horizontal-card reveal" onclick="openModal('ten-day')">
-        <img src="images/10day.jpg" alt="10 Days Tour" loading="lazy">
-        <div class="card-content">
-          <h3>10-Day Complete Experience</h3>
-          <p class="subtitle">Ultimate Round Tour</p>
-          <p class="desc">Anuradhapura &bull; Sigiriya &bull; Kandy &bull; Nuwara Eliya &bull; Ella &bull; Yala &bull;
-            Mirissa &bull; Galle</p>
-          <div class="price">Custom Pricing</div>
-          <span class="view-btn">View Itinerary &rarr;</span>
-        </div>
-      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
     </div>
   </section>
 
@@ -368,7 +408,7 @@
     </div>
 
     <div class="footer-bottom">
-      <div class="copyright">&copy; 2026 Jayasinghe Tours & Car Rental. Crafted for excellence.</div>
+      <div class="copyright">&copy; 2026 Jayasinghe Tours & Car Rental.</div>
     </div>
   </footer>
 
@@ -693,6 +733,7 @@
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="script.js" defer></script>
 </body>
 
